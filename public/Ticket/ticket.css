@@ -1,0 +1,361 @@
+@font-face {
+    font-family: noto-arabic;
+    src: url(https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/notosansarabic-light.woff2) format('woff2'), url(https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/notosansarabic-light.woff) format('woff');
+    font-weight: 200;
+    font-style: normal
+}
+
+@font-face {
+    font-family: noto-arabic;
+    src: url(https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/notosansarabic-regular.woff2) format('woff2'), url(https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/notosansarabic-regular.woff) format('woff');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: noto-arabic;
+    src: url(https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/notosansarabic-bold.woff2) format('woff2'), url(https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/notosansarabic-bold.woff) format('woff');
+    font-weight: 600;
+    font-style: normal
+}
+
+:lang(ar) {
+    font-family: '', noto-arabic, '', Helvetica, Arial, 'Hiragino Kaku Gothic Pro', Meiryo, 'MS Gothic', sans-serif !important;
+    letter-spacing: 0 !important
+}
+
+.invoice-content-2 {
+    background-color: #fff;
+    padding: 15px 25px;
+    padding-top: 8px;
+    page-break-after: always;
+}
+
+    .invoice-content-2.bordered {
+        border: 1px solid;
+        border-color: #e7ecf1;
+        height: 950px !important;
+        background-image: url(../../../ticket-mdeia/t__bg.jpg) !important;
+        background-repeat: no-repeat, repeat !important;
+        background-size: 112% 60% !important;
+        background-position: bottom !important;
+        -webkit-print-color-adjust: exact !important
+    }
+
+    .invoice-content-2 .invoice-head {
+        margin-bottom: 0
+    }
+
+        .invoice-content-2 .invoice-head .invoice-logo {
+            text-align: center
+        }
+
+            .invoice-content-2 .invoice-head .invoice-logo > img {
+                float: right;
+                margin-left: 10px
+            }
+
+            .invoice-content-2 .invoice-head .invoice-logo > h1 {
+                float: right;
+                font-size: 17px;
+                font-weight: 700;
+                color: #39424a;
+                margin-top: 48px
+            }
+
+        .invoice-content-2 .invoice-head .company-address {
+            text-align: left;
+            font-size: 14px;
+            color: #7e8691;
+            margin-top: 16px
+        }
+
+    .invoice-content-2 .invoice-title {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #9ea8b7
+    }
+
+    .invoice-content-2 .invoice-desc {
+        font-size: 14px;
+        color: #4e5a64;
+        font-weight: 600
+    }
+
+        .invoice-content-2 .invoice-desc.inv-address {
+            font-size: 13px;
+            color: #7e8691;
+            font-weight: 400
+        }
+
+        .invoice-content-2 .invoice-desc.grand-total {
+            font-size: 16px;
+            font-weight: 700
+        }
+
+    .invoice-content-2 .invoice-cust-add {
+        margin-bottom: 50px
+    }
+
+    .invoice-content-2 .invoice-body .text-center {
+        text-align: center
+    }
+
+    .invoice-content-2 .invoice-body tr:last-child {
+        border-bottom: 1px solid #e7ecf1
+    }
+
+    .invoice-content-2 .invoice-body td,
+    .invoice-content-2 .invoice-body th {
+        vertical-align: middle;
+        padding-right: 40px;
+        padding-left: 40px
+    }
+
+        .invoice-content-2 .invoice-body td:first-child,
+        .invoice-content-2 .invoice-body th:first-child {
+            padding-right: 0
+        }
+
+        .invoice-content-2 .invoice-body td:last-child,
+        .invoice-content-2 .invoice-body th:last-child {
+            padding-left: 0
+        }
+
+    .invoice-content-2 .invoice-body h3 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #4e5a64;
+        margin-bottom: 0
+    }
+
+    .invoice-content-2 .invoice-body p {
+        font-size: 13px;
+        color: #7e8691
+    }
+
+    .invoice-content-2 .print-btn {
+        float: left;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px
+    }
+
+img.img-responsive.logo__moi {
+    width: 100px
+}
+
+img.img-responsive.logo__moi {
+    width: 76px
+}
+
+h1.uppercase.ticket_name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    margin-top: 15px
+}
+
+h3.uppercase.ticker__supname {
+    font-size: 16px;
+    margin-top: 0
+}
+
+.ticket__namee {
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center
+}
+
+p.ticket__number {
+    text-align: center;
+    margin-top: 0;
+    font-weight: 200;
+    font-size: 18px
+}
+
+p.date__txt-ar {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: right
+}
+
+p.date__txt-en {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: right
+}
+
+.first-date-content {
+    display: table;
+    width: 76%;
+    float: left
+}
+
+.Ticket_date {
+    display: table-cell;
+    width: 76%
+}
+
+.Ticket_date__content {
+    display: table-cell;
+    padding-right: 10px
+}
+
+hr.ticket-hr__header {
+    margin-top: 0;
+    border-width: 2px;
+    border-color: #8e8e8e;
+    margin: 0
+}
+
+p.ticket__generalinfo {
+    background: #efefef !important;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 600
+}
+
+hr,
+p {
+    margin: 10px 0
+}
+
+.table-scrollable > .table {
+    width: 100% !important;
+    margin: 0 !important;
+    background-color: transparent !important;
+    border: 1px solid #e7ecf1;
+}
+
+img.tkt__logo {
+    width: 30px
+}
+
+.ticket_copyrights {
+    display: table;
+    width: 100%;
+    text-align: center
+}
+
+.page-content-wrapper .page-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 280px
+}
+
+.left__cont {
+    display: table-cell;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    font-size: 12px
+}
+
+.right__cont {
+    display: table-cell;
+    padding-left: 3px
+}
+
+.page-container {
+    margin: 0 !important;
+    padding: 20px 20px 0
+}
+
+p.ticker__notes {
+    font-size: 12px
+}
+
+.date__two {
+    font-size: 12px
+}
+
+.date__one {
+    font-size: 12px
+}
+
+.top__foot {
+    display: table;
+    width: 100%;
+    margin-bottom: 0
+}
+
+p.ticker__notes {
+    display: table-cell;
+    width: 80%;
+    vertical-align: middle
+}
+
+.Qr-code__ticket {
+    display: table-cell;
+    width: 20%
+}
+
+.qr-contentt {
+    width: 65px;
+    height: 65px;
+    float: left;
+    border: 1px solid #dedede;
+    border-radius: 5px !important;
+    padding: 5px
+}
+
+.tickettxt__footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0
+}
+
+.table td,
+.table th {
+    font-size: 12px
+}
+
+.ticket__body {
+    position: relative;
+    height: 420px
+}
+
+span.travellers__num {
+    float: left
+}
+
+@media (max-width:1024px) {
+    .invoice-content-2 .invoice-head .invoice-logo > img {
+        width: 70px;
+        margin-top: 0
+    }
+
+    .page-content-wrapper .page-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        padding-top: 3px !important;
+        min-height: 280px
+    }
+}
+
+@media (max-width:991px) {
+    .invoice-content-2 {
+        padding: 31px 15px;
+        padding-top: 8px
+    }
+
+    .page-content-wrapper .page-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        min-height: 280px
+    }
+}
+
+@media (max-width:480px) {
+    .invoice-content-2 .invoice-head .invoice-logo > h1 {
+        margin-top: 10px
+    }
+
+    .invoice-content-2 .invoice-head .company-address {
+        font-size: 12px
+    }
+}

@@ -1,0 +1,3123 @@
+/*!
+Theme Name: sawaed
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: sawaed
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+sawaed is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+    Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Generic
+	- Normalize
+	- Box sizing
+# Base
+	- Typography
+	- Elements
+	- Links
+	- Forms
+## Layouts
+# Components
+	- Navigation
+	- Posts and pages
+	- Comments
+	- Widgets
+	- Media
+	- Captions
+	- Galleries
+# plugins
+	- Jetpack infinite scroll
+# Utilities
+	- Accessibility
+	- Alignments
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Generic
+--------------------------------------------------------------*/
+
+/* Normalize
+--------------------------------------------- */
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+	 ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+    overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+/*fieldset {*/
+/*	padding: 0.35em 0.75em 0.625em;*/
+/*}*/
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *		`fieldset` elements in all browsers.
+ */
+legend {
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+    vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+    overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit;
+}
+
+/* Interactive
+	 ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+    display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+    display: list-item;
+}
+
+/* Misc
+	 ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+    display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+    display: none;
+}
+
+/* Box sizing
+--------------------------------------------- */
+
+/* Inherit box-sizing to more easily change it's value on a component level.
+@link http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+
+/* Typography
+--------------------------------------------- */
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+    color: #404040;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    clear: both;
+}
+
+p {
+    margin-bottom: 1.5em;
+}
+
+dfn,
+cite,
+em,
+i {
+    font-style: italic;
+}
+
+blockquote {
+    margin: 0 1.5em;
+}
+
+address {
+    margin: 0 0 1.5em;
+}
+
+pre {
+    background: #eee;
+    font-family: "Courier 10 Pitch", courier, monospace;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1.6em;
+}
+
+code,
+kbd,
+tt,
+var {
+    font-family: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+    border-bottom: 1px dotted #666;
+    cursor: help;
+}
+
+mark,
+ins {
+    background: #fff9c0;
+    text-decoration: none;
+}
+
+big {
+    font-size: 125%;
+}
+
+/* Elements
+--------------------------------------------- */
+body {
+    background: #fff;
+}
+
+hr {
+    background-color: #ccc;
+    border: 0;
+    height: 1px;
+}
+
+/*ul,*/
+/*ol {*/
+/*	margin: 0 0 1.5em 3em;*/
+/*}*/
+
+ul {
+    list-style: disc;
+}
+
+ol {
+    list-style: decimal;
+}
+
+li > ul,
+li > ol {
+    margin-bottom: 0;
+    margin-left: 1.5em;
+}
+
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin: 0 1.5em 1.5em;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+figure {
+    margin: 1em 0;
+}
+
+table {
+    margin: 0 0 1.5em;
+    width: 100%;
+}
+
+/* Links
+--------------------------------------------- */
+a {
+    /*color: #4169e1;*/
+    color: #FFF;
+}
+
+a:visited {
+    /*color: #800080;*/
+    color: #FFF;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: #191970;
+}
+
+
+a:hover,
+a:active {
+    outline: 0;
+}
+
+/* Forms
+--------------------------------------------- */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    border: 1px solid;
+    border-color: #ccc #ccc #bbb;
+    border-radius: 3px;
+    background: #e6e6e6;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1;
+    padding: 0.6em 1em 0.4em;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    border-color: #ccc #bbb #aaa;
+}
+
+button:active,
+button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+    border-color: #aaa #bbb #bbb;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+    color: #666;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+    color: #111;
+}
+
+select {
+    border: 1px solid #ccc;
+}
+
+textarea {
+    width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Layouts
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+
+/* Navigation
+--------------------------------------------- */
+.main-navigation {
+    display: block;
+    width: 100%;
+}
+
+.main-navigation ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.main-navigation ul ul {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 100%;
+    left: -999em;
+    z-index: 99999;
+    display: block;
+    background-color: #659ad2;
+}
+
+.main-navigation ul ul ul {
+    left: -999em;
+    top: 0px;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+    display: block;
+    left: 200px;
+}
+
+.main-navigation ul ul a {
+    width: 200px;
+    font-size: 14px;
+    transition: all ease 0.3s;
+}
+
+.main-navigation ul ul li:hover {
+    background-color: #154272 ;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+    left: 0px;
+}
+
+.main-navigation li {
+    position: relative;
+}
+
+.main-navigation a {
+    display: block;
+    text-decoration: none;
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+    display: block;
+}
+
+@media screen and (min-width: 812px) {
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .main-navigation ul {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+
+.site-main .comment-navigation,
+.site-main
+.posts-navigation,
+.site-main
+.post-navigation {
+    margin: 0 0 1.5em;
+}
+
+.comment-navigation .nav-links,
+.posts-navigation .nav-links,
+.post-navigation .nav-links {
+    display: flex;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+    flex: 1 0 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+    text-align: end;
+    flex: 1 0 50%;
+}
+
+/* Posts and pages
+--------------------------------------------- */
+.sticky {
+    display: block;
+}
+
+
+.updated:not(.published) {
+    display: none;
+}
+
+/*.page-content,*/
+/*.entry-content,*/
+/*.entry-summary {*/
+/*	margin: 1.5em 0 0;*/
+/*}*/
+
+.page-links {
+    clear: both;
+    margin: 0 0 1.5em;
+}
+
+/* Comments
+--------------------------------------------- */
+.comment-content a {
+    word-wrap: break-word;
+}
+
+.bypostauthor {
+    display: block;
+}
+
+/* Widgets
+--------------------------------------------- */
+.widget {
+    margin: 0 0 1.5em;
+}
+
+.widget select {
+    max-width: 100%;
+}
+
+/* Media
+--------------------------------------------- */
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+    border: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+    display: inline-block;
+}
+
+/* Captions
+--------------------------------------------- */
+.wp-caption {
+    margin-bottom: 1.5em;
+    max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+    margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+    text-align: center;
+}
+
+/* Galleries
+--------------------------------------------- */
+.gallery {
+    margin-bottom: 1.5em;
+    display: grid;
+    grid-gap: 1.5em;
+}
+
+.gallery-item {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.gallery-columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery-columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.gallery-columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery-columns-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.gallery-columns-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.gallery-columns-7 {
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.gallery-columns-8 {
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.gallery-columns-9 {
+    grid-template-columns: repeat(9, 1fr);
+}
+
+.gallery-caption {
+    display: block;
+}
+
+/*--------------------------------------------------------------
+# Plugins
+--------------------------------------------------------------*/
+
+/* Jetpack infinite scroll
+--------------------------------------------- */
+
+/* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+    display: none;
+}
+
+/* Re-display the Theme Footer when Infinite Scroll has reached its end. */
+.infinity-end.neverending .site-footer {
+    display: block;
+}
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+
+/* Accessibility
+--------------------------------------------- */
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: #21759b;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+/* Do not show the outline on the skip link target. */
+#primary[tabindex="-1"]:focus {
+    outline: 0;
+}
+
+/* Alignments
+--------------------------------------------- */
+.alignleft {
+
+    /*rtl:ignore*/
+    float: left;
+
+    /*rtl:ignore*/
+    margin-right: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.alignright {
+
+    /*rtl:ignore*/
+    float: right;
+
+    /*rtl:ignore*/
+    margin-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5em;
+}
+
+/*---------------------------*/
+
+/* Sawaed Styling [Sami ul Haq] */
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box !important;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul li {
+    list-style: none;
+}
+
+i{
+    display: inline-block;
+    cursor: pointer;
+}
+
+img{
+    cursor: pointer;
+}
+
+h1, h2 , h3 , h4 , h5{
+    margin-bottom: 0px;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+h6, p{
+    margin-bottom: 0px;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.custom-letter-spacing{
+    letter-spacing: 5px;
+}
+
+.btn-check:focus+.btn,
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+    border-color: #666 !important;
+    box-shadow: none !important;
+}
+
+/*Header Styling Start*/
+
+.sticky-nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    opacity: 1;
+    width: 100%;
+    background-color: #154171ed !important;
+    box-shadow: 2px 2px 10px -2px rgba(0,0,0,0.2);
+    animation-name: header-slide-down;
+    animation-duration: 0.8s;
+}
+
+.sticky-logo-cont .sticky-logo{
+    width: 158px;
+    height: auto;
+    display: none;
+}
+
+
+@keyframes header-slide-down {
+    0% {opacity: 0;}
+    50% {opacity: 0.5;}
+    100% {opacity: 1; }
+}
+
+.header-main .header-lower{
+    background-color: #154171;
+}
+
+.header-main .header-lower .sawaed-navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-navigation .menu .menu-item{
+    position: relative;
+}
+
+.main-navigation .menu .menu-item{
+    color: #FFF;
+    display: inline-block;
+    padding: 15px 25px 15px 20px;
+    text-transform: uppercase;
+    font-family: 'Ubuntu', sans-serif;
+    transition: ease 0.4s;
+}
+
+.main-navigation .nav-menu .menu-item a,
+.main-navigation .nav-menu .menu-item a:focus,
+.main-navigation .nav-menu .menu-item a:active,
+.main-navigation .nav-menu .menu-item a:hover{
+    color: #FFF;
+}
+
+.main-navigation .nav-menu .menu-item.navbar-donate-btn{
+    background-color: #d20001;
+    font-weight:800;
+}
+.donate-card-container .custom-amount {
+    padding: .375rem .75rem;
+}
+.main-navigation .nav-menu .menu-item.navbar-donate-btn:hover{
+    background-color: #545454 !important;
+}
+
+.main-navigation .nav-menu .menu-item.zakat-calc-btn{
+    background-color: #659ad2;
+}
+
+.main-navigation .nav-menu .menu-item.zakat-calc-btn:hover{
+    background-color: #d20001 !important;
+}
+
+
+.main-navigation .nav-menu .menu-item:not( .menu-item-has-children .sub-menu .menu-item):hover{
+    transition: ease 0.4s;
+    background-color: #d20001;
+    cursor: pointer;
+}
+
+.main-navigation .menu .menu-item.menu-item-has-children::after{
+    font-family: "Font Awesome 5 Free";
+    content: "\f078";
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 600;
+    position: absolute;
+    right: 15px;
+    top: 21px;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 8px;
+}
+
+.main-navigation .menu-item.menu-item-has-children .sub-menu .menu-item.menu-item-has-children::after {
+    top: 15px;
+    transform: rotate(-90deg);
+}
+
+.cart-icon-mob {
+    display: none;
+}
+
+.cart-icon-mob .fa-shopping-basket{
+    font-size: 18px;
+    color: #154272;
+    padding: 10px;
+}
+
+.sawaed-navbar .cart-icon .fa-shopping-basket{
+    color: #FFF;
+    padding: 15px 20px;
+}
+
+.header-cta{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-cta p{
+    padding: 0px 10px;
+    color: #828282;
+}
+
+.header-cta p a{
+    color: #828282;
+}
+
+
+.header-cta p i{
+    padding-right: 10px;
+    color: #6599D2;
+    transform: scale(1);
+    transition: all ease 0.5s;
+}
+
+.header-cta p i:hover{
+    color: #154272;
+    transform: scale(1.1);
+}
+
+.header-cta .social-media-links i{
+    color: #6599d2;
+    padding: 0px 10px;
+    transform: scale(1);
+    transition: all ease 0.5s;
+}
+
+.header-cta .social-media-links i:hover{
+    color: #154272;
+    transform: scale(1.1);
+}
+
+.header-cta .social-media-links i:not(:last-of-type){
+    border-right: 1px solid #ccc;
+}
+
+.navbar-toggler {
+    display: none;
+}
+
+.rmp-container .rmp-menu-title .rmp-menu-title-image {
+    margin-top: 15px;
+}
+/*Header Styling Ends*/
+
+/* Slider Styling*/
+.home-sliders .mobile-slider{
+    display: none;
+}
+
+/* Our Projects/Appeals/ religious dues Stylings*/
+
+
+.religious-dues-row .religious-dues-item .religious-dues-white-bg,
+.projects-row .projects-item .projects-white-bg,
+.home-our-project .lvca-grid-item > article{
+    transition: all ease 0.5s;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    -webkit-box-shadow: 0px 0px 6px -2px #000000 !important;
+    box-shadow: 0px 0px 6px -2px #000000 !important;
+}
+
+.religious-dues-row .religious-dues-item .religious-dues-white-bg:hover,
+.projects-row .projects-item .projects-white-bg:hover,
+.home-our-project .lvca-grid-item > article:hover{
+    cursor: pointer;
+    transform: translateY(-15px);
+}
+
+.religious-dues-row .religious-dues-item .religious-dues-white-bg h3,
+.projects-row .projects-item .projects-white-bg h3,
+.home-our-project .projects .lvca-entry-text-wrap h3{
+    margin: 0px !important;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+.home-our-project .projects .lvca-entry-text-wrap{
+    margin: 0px !important;
+}
+
+.home-our-project .projects .lvca-entry-text-wrap h3 a{
+    padding: 0px !important;
+}
+
+.religious-dues-row .religious-dues-item .projects-desc p,
+.projects-row .projects-item .projects-desc p,
+.home-our-project .lvca-portfolio-item .lvca-entry-text-wrap .entry-summary{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    margin: 0px 0px 25px;
+    padding: 0px 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Our Projects Stylings Ends*/
+
+/* Why Sawaed Stylings*/
+.home-about-us .about-us-after{
+    position: relative;
+}
+
+.home-about-us .about-us-after::before{
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 2px;
+    left: 110px;
+    top: 12px;
+    background-color: #659ad2;
+}
+
+.home-about-us .about-us-separator{
+    position: relative;
+}
+
+.home-about-us .about-us-separator::before{
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 3px;
+    left: 0px;
+    top: 11px;
+    background-color: #ff8030;
+}
+
+
+/* Why Sawaed Stylings Ends*/
+
+/* Get Involved Stylings*/
+
+.main-page-volunteer-section p{
+    color: #FFF;
+    font-size: 28px;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Get Involved Stylings Ends*/
+
+/* Latest Appeals Stylings*/
+
+
+.home-appeals .lvca-posts-carousel-item .appeals{
+    position: relative;
+}
+
+.home-appeals .lvca-posts-carousel-item .appeals .lvca-entry-text-wrap {
+    position: absolute;
+    bottom: 0px;
+    padding: 15px 20px;
+    background: #154272d1;
+    width: 100%;
+}
+
+.home-appeals .lvca-posts-carousel-item .appeals .lvca-entry-text-wrap:hover{
+    cursor: pointer;
+}
+
+.home-appeals .lvca-posts-carousel .lvca-posts-carousel-item .lvca-entry-text-wrap .entry-title {
+    margin-bottom: 0px;
+    text-align: left;
+    font-size: 22px;
+    border-left: 4px solid #659ad2;
+    padding-left: 10px;
+}
+
+.home-appeals .lvca-posts-carousel-item .lvca-entry-text-wrap .entry-title a{
+    color: #FFF !important;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.home-appeals .lvca-entry-text-wrap .fa-chevron-right{
+    color: #659ad2;
+    transform: translateX(10px);
+    transition: all ease 0.5s;
+}
+
+.home-appeals .appeals:focus .lvca-entry-text-wrap .fa-chevron-right,
+.home-appeals .appeals:hover .lvca-entry-text-wrap .fa-chevron-right{
+    transform: translateX(20px);
+}
+
+
+/* Latest Appeals Stylings Ends*/
+
+
+/* Modal Styling*/
+
+.modal.fade .modal-dialog {
+    transition: transform .2s ease-out;
+    transform: translate(560px,0);
+}
+
+.modal.show .modal-dialog{
+    transform: translate(0,0);
+}
+
+.modal-dialog {
+    margin: 0px;
+    position: fixed;
+    right: 0px;
+}
+
+.modal-content {
+    height: 100vh;
+    border: none;
+}
+
+.modal .custom-modal-header{
+    background-color: #154272;
+    border-bottom: 4px solid #659ad2;
+    color: #FFF;
+    font-weight: 600;
+}
+
+.custom-modal-header .btn-close{
+    color: #FFF !important;
+    background-color: #01AEF0;
+    border-radius: 50%;
+    padding: 15px !important;
+}
+
+.modal-body .donation-types {
+    height: 190px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: #f3f3f3;
+}
+
+.modal-body .donation-col-each{
+    padding-bottom: 5px;
+    border-bottom: 2px solid #154272;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: block;
+    opacity: 1;
+    margin: 0px;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.modal .donation-col-each span{
+    font-size: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.modal .donation-col-each .fa-times{
+    color: #FFF;
+    background-color: #154272;
+    padding: 5px;
+    width: 25px;
+    border-radius: 50%;
+    text-align: center;
+    transition: all ease 0.5s;
+}
+
+.modal .donation-col-each .fa-times:hover{
+    background-color: #b81516;
+}
+
+.modal .modal-body .donation-col-each .donate-qty{
+    width: 50px;
+    padding-left: 10px;
+}
+
+.modal .support-donation-pop{
+    margin-top: 20px;
+}
+
+.modal .donation-type span{
+    font-size: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.modal .support-donation-pop .support-heading{
+    margin: 0px;
+    text-transform: uppercase;
+    color: #154272;
+    font-weight: bold;
+}
+
+.modal .modal-footer .btn{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #FFF;
+    padding: 10px 0px;
+}
+
+.modal-footer .add-an-btn{
+    background-color: #659ad2;
+}
+
+.modal-footer .check-out-btn{
+    background-color: #154272;
+}
+
+.modal-footer .donate-pop-title,
+.modal-footer .donate-pop-total{
+    font-weight: bold;
+}
+
+
+/* Modal Styling Ends*/
+
+/* Subscribe Section Styling*/
+
+.subscibe-section{
+    background-color: #FF8031;
+}
+
+.subscibe-section h3{
+    color: #FFF;
+    font-weight: 600;
+}
+
+.subscibe-section p{
+    color: #FFF;
+    font-size: 12px;
+}
+
+.subscribe-input{
+    display: inline-block;
+    border: 1px solid #FFF;
+    border-radius: 25px;
+    padding: 2px 10px ;
+}
+
+.subscribe-input .mc4wp-form .mc4wp-form-fields{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subscribe-input .mc4wp-form input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 300px;
+}
+
+.subscribe-input .mc4wp-form button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 5px 0px 5px 10px;
+}
+
+.subscribe-input .mc4wp-form input:focus,
+.subscribe-input .mc4wp-form input::placeholder{
+    color: #FFF;
+}
+
+.subscribe-input .fa-paper-plane{
+    display: inline-block;
+    padding: 0px 10px;
+    color: #FFF;
+    border-left: 2px solid #FFF;
+    transition: all ease 0.5s;
+}
+
+.subscribe-input .fa-paper-plane:hover{
+    color: #154272;
+}
+
+/* Subscribe Section Ends*/
+
+
+/*Footer Styling Start*/
+
+.footer-main{
+    background-color: #001121;
+    padding:50px 0px 50px 0px;
+}
+
+.footer-main h6{
+    color: #FFF;
+    margin-bottom: 20px;
+}
+
+.footer-about .footer-logo{
+    width: 243px;
+    height: auto;
+}
+
+.footer-about p{
+    font-size: 14px;
+    color: #FFF;
+}
+
+.footer-main ul li a{
+    color: #dbdbdb;
+    font-size: 14px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.footer-main ul li a:hover{
+    color: #FFF;
+}
+
+.footer-main .footer-social-media-links i{
+    color: #FFF;
+    width: 20px;
+    text-align: center;
+    transform: scale(1);
+    transition: all ease 0.5s;
+
+}
+
+.footer-main .footer-social-media-links i:hover{
+    color: #659ad2;
+    transform: scale(1.2);
+}
+
+.footer-main .footer-social-media-links a:not(:last-of-type){
+    margin-right: 20px;
+}
+
+.sawaed-address ul li{
+    margin: 10px 0px;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+}
+
+.sawaed-address ul li i{
+    width: 25px;
+    text-align: center;
+    padding: 5px;
+    margin-right: 10px;
+    color: #104272;
+    background-color: #659ad2;
+}
+
+.btn-to-top{
+    position: fixed;
+    bottom: 70px;
+    right: 50px;
+    background-color: #154272;
+    width: 45px;
+    height: 45px;
+    transition: all ease 1s;
+}
+
+.btn-to-top:hover{
+    background-color: #659ad2;
+}
+
+.btn-to-top:hover .to-top{
+    transform: translateY(-5px);
+}
+
+.btn-to-top .to-top{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #FFF;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* copyright-section */
+.copyright-section{
+    background-color: #111111;
+}
+
+.copyright-section p{
+    color: #FFF;
+    font-size: 14px;
+}
+
+.copyright-section p a{
+    color: #659ad2;
+}
+
+/*Footer Styling Ends*/
+
+
+/* Home Page Customization */
+.vc_btn3-container button{
+    padding: 8px 0px !important;
+    width: 150px;
+    outline: none;
+    border: none !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #ff8030 !important;
+    background-image: none !important;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.vc_btn3-container button:hover{
+    background-color: #B81516 !important;
+}
+
+.vc_btn3.vc_btn3-icon-right {
+    text-align: center !important;
+}
+
+
+/*----------------------------------------------*/
+/* Custom Post Type Syling*/
+/*----------------------------------------------*/
+
+
+#sidebardonate-container-sticky{
+    min-height: auto;
+    overflow: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10%;
+}
+
+@media screen and (max-width: 767px){
+    #sidebardonate-container-sticky {
+        position: unset!important;
+        margin-bottom: 15px;
+    }
+}
+
+.global-heading{
+    color: #659ad2;
+    font-weight: bold;
+}
+
+.global-heading-hr{
+    background-color: #ebebeb;
+    height: 3px !important;
+    position: relative;
+    opacity: 1;
+    margin: 5px 0px 0px;
+}
+
+.global-heading-hr::before{
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: #FF802F;
+    width: 20%;
+    height: 3px;
+}
+
+
+.projects-row .projects-item .projects-white-bg{
+    background-color: #f8f8f8;
+}
+
+.each-related-post .white-bg-related-post img,
+.religious-dues-item .religious-dues-white-bg img,
+.projects-item .projects-white-bg img{
+    width: 100%;
+    height: auto;
+}
+
+.religious-dues-item .religious-dues-white-bg .projects-desc,
+.projects-item .projects-white-bg .projects-desc{
+    padding: 10px 25px;
+}
+
+.religious-dues-item .religious-dues-white-bg h3,
+.lvca-entry-text-wrap .project-item-title a,
+.projects-item .projects-white-bg h3{
+    color: #104272 !important;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.religious-dues-white-bg .projects-desc p,
+.projects-white-bg .projects-desc p{
+    color: #060d2e;
+    text-align: center;
+}
+
+.projects-arc-btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+.projects-arc-btns .project-btn{
+    padding: 2px 20px;
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.projects-arc-btns .lm-news{
+    color: #659ad2;
+    border: 2px solid #659ad2;
+    position: relative;
+}
+
+.projects-arc-btns .dnt-news{
+    color: #d10000;
+    border: 2px solid #d10000;
+    position: relative;
+}
+
+.projects-arc-btns .lm-news::before,
+.projects-arc-btns .dnt-news::before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: transform ease 0.4s;
+    z-index: -1;
+}
+
+.projects-arc-btns .lm-news::before{
+    transform: scaleX(0);
+    background-color: #659ad2;
+
+}
+.projects-arc-btns .dnt-news::before{
+    transform: scaleX(0);
+    background-color: #d10000;
+}
+
+.projects-arc-btns .lm-news:hover,
+.projects-arc-btns .dnt-news:hover{
+    color: #FFF;
+}
+
+.projects-arc-btns .lm-news:hover::before,
+.projects-arc-btns .dnt-news:hover::before{
+    transform: scaleX(1);
+}
+
+.lvca-grid-item .projects{
+    background-color: #f8f8f8 !important;
+}
+
+.lvca-portfolio-wrap .lvca-portfolio .lvca-portfolio-item .entry-summary::before {
+    display: none;
+}
+
+.projects .lvca-project-image{
+    padding: 0px;
+}
+
+/*Custom Appeals*/
+
+.appeals-row .appeals-item{
+    position: relative;
+}
+
+.appeals-item .appeals-title-bg{
+    position: absolute;
+    bottom: 0px;
+    background-color: #154272;
+    padding: 8px 20px;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.appeals-row .appeals-item img{
+    width: 100%;
+}
+
+.appeals-row .appeals-item:hover .appeals-title-bg a .fa-chevron-right{
+    transform: translateX(10px);
+}
+
+.appeals-item .appeals-title-bg a{
+    color: #FFF;
+    font-size: 26px;
+}
+
+.appeals-item .appeals-title-bg h3{
+    font-weight: 400;
+    display: inline-block;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.appeals-item .appeals-title-bg a i{
+    padding-left: 20px;
+    font-size: 20px;
+    transform: translateX(0px);
+    transition: all ease 1s;
+}
+
+
+/*Custom Religious dues *
+
+
+/*----------------------------------------------*/
+/* Custom Post Type Syling Ends*/
+/*----------------------------------------------*/
+
+.search-results article .entry-title a{
+    color: #154171;
+}
+
+
+/* Pagination */
+
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.pagination .custom-pagination span,
+.pagination .custom-pagination a{
+    background-color: #154272;
+    padding: 5px 10px;
+    display: inline-block;
+    color: #fff;
+    transition: all ease 0.3s;
+}
+
+.pagination .custom-pagination span:hover,
+.pagination .custom-pagination a:hover{
+    background-color: #659ad2;
+}
+
+
+/* Home Quick Donate*/
+
+.quick-donate-container select,
+.quick-donate-container input,
+.quick-donate-container button{
+    border-radius: 0px !important;
+}
+
+.quick-donate-row .wpb_content_element{
+    margin-bottom: 0px !important;
+}
+
+/*.quick-donate-container .quick-donate{*/
+/*    margin-top: -54px;*/
+/*}*/
+
+.home-sliders .quick-donate-container .quick-donate{
+    margin-top: -89px;
+}
+
+.quick-donate .donate-cta{
+    /*background-color: #ffffff5e;*/
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.quick-donate-container .select-amount input{
+    height: 38px;
+}
+
+.donate-heading{
+    /*background-color: #ff8031a3;*/
+    background-color: rgba(254, 139, 68, 0.7);
+}
+
+.donate-heading h5{
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.quick-donate-btn button{
+    color: #FFF;
+    background-color: #d20001;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 600;
+}
+
+.quick-donate-btn button:hover{
+    color: #FFF;
+    background-color: #b81515b6;
+}
+
+
+/*Relates Posts Section*/
+
+.related-religious-dues-posts .each-related-post .white-bg-related-post,
+.related-appeal-posts .each-related-post .white-bg-related-post,
+.related-projects-posts .each-related-post .white-bg-related-post{
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding: 6px 6px 15px 6px;
+    transition: all ease 0.5s;
+    -webkit-box-shadow: 0px 0px 6px -2px #000000;
+    box-shadow: 0px 0px 6px -2px #000000;
+    cursor: pointer;
+}
+
+.related-religious-dues-posts .each-related-post .white-bg-related-post:hover,
+.related-appeal-posts .each-related-post .white-bg-related-post:hover,
+.related-projects-posts .each-related-post .white-bg-related-post:hover{
+    transform: translateY(-15px);
+}
+
+.related-appeal-posts h2,
+.related-projects-posts h2,
+.related-religious-dues-posts h2{
+    color: #060d2e;
+}
+
+
+.each-related-post .white-bg-related-post a.each-related-post-title{
+    color: #104272;
+    font-size: 24px;
+    padding: 10px 0px;
+    height: 60px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.white-bg-related-post .readm-csrd-btn a{
+    color: #B81516;
+    font-weight: 600;
+    transition: all ease 0.4s;
+    width: 100%;
+    border: 2px solid #B81516;
+    padding: 5px 15px;
+    position: relative;
+}
+
+.white-bg-related-post .readm-csrd-btn a:hover{
+    color: #FFF;
+}
+
+.white-bg-related-post .readm-csrd-btn a::before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: transform ease 0.4s;
+    transform: scaleX(0);
+    z-index: -1;
+}
+
+.white-bg-related-post .readm-csrd-btn a:hover::before{
+    transform: scaleX(1);
+    background-color: #B81516;
+
+}
+
+
+
+/* Donate Now Page Styling */
+
+.donate-now-header .entry-content-donate-now{
+    color: #154272;
+}
+.customAmount {
+    background: #154272 !important;
+    border: none !important;
+    color: #fff !important;
+    font-weight: 600;
+    padding: 11px !important;
+}
+.donate-now-page{
+    background-color: #f8f8f8;
+}
+
+.donate-card{
+    background-color: #FFF;
+    box-shadow: 0px 0px 6px -2px #000000;
+    border-radius: 5px;
+    height: 600px;
+}
+
+.donate-card:hover{
+    box-shadow: 0px 0px 3px 0px #000000;
+    cursor: pointer;
+}
+
+.donate-card .donate-card-title .card-title-after{
+    color: #154272;
+    font-weight: 700;
+    position: relative;
+}
+
+.donate-card .donate-card-title .card-title-after::after{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    left: 0px;
+    bottom: -10px;
+    background-color: #FF8031;
+}
+
+
+.donate-card .donate-img-cont img{
+    width: 100%;
+}
+
+.donate-card .select-options select{
+    border: 1px solid #669ad3;
+}
+
+.donate-card .donation-type input[type="radio"]{
+    display: none;
+}
+
+.donate-card .donation-type input[type="radio"]:checked + label{
+    background-color: #ff8031;
+    border: 2px solid #ff8031;
+    color: #FFF;
+}
+
+.donate-card .donation-type label{
+    width: 100%;
+    border: 2px solid #669ad3;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 1px 0px;
+    background: #fff;
+    color: #669ad3;
+}
+
+.donate-card .donation-amount-fields .col-3 label{
+    background-color: #f1f1f1;
+    border: 2px solid #659ad2;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.donate-card .donation-amount-fields input[type="radio"]{
+    display: none;
+}
+
+.donate-card .donation-amount-fields input[type="radio"]:checked + label{
+    background-color: #FF8031;
+    color: #FFF;
+    border: 2px solid #FF8031;
+}
+
+.donate-card .donation-type .donate-single{
+
+    color: #FFF;
+    background-color: #669AD3;
+}
+
+.donate-card .donation-type .donate-monthly{
+    color: #000000;
+}
+
+.donate-card .custom-select-options .custom-amount{
+    height: 40px;
+    border: 1px solid #669AD3;
+}
+
+
+.donate-card .card-dnt-btn{
+    background-color: #b81516;
+    color: #FFF;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Donate Now Page Styling Ends */
+
+
+/* About Us PAge Styling*/
+
+.contact-page-separator .contact-separator,
+.other-ways-page-separator .other-ways-separator,
+.volunteer-page-separator .volunteer-separator,
+.about-us-page-separator .about-us-separator{
+    position: relative;
+}
+
+.contact-page-separator .contact-separator::before,
+.other-ways-page-separator .other-ways-separator::before,
+.volunteer-page-separator .volunteer-separator::before,
+.about-us-page-separator .about-us-separator::before{
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 3px;
+    left: 0px;
+    top: 1px;
+    z-index: 2;
+    background-color: #ff8030;
+}
+
+
+.our-work-after .about-us-after,
+.our-history-after .about-us-after{
+    position: relative;
+}
+
+.our-work-after .about-us-after::before,
+.our-history-after .about-us-after::before{
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 2px;
+}
+
+.our-work-after .about-us-after::before{
+    left: 80px;
+    top: 12px;
+    background-color: #FF8031;
+}
+
+.our-history-after .about-us-after::before{
+    left: 95px;
+    top: 12px;
+    background-color: #659ad2;
+}
+
+
+.about-us-absolute .about-us-absolute-image figure{
+    position: absolute;
+    bottom: -25px;
+    right: 0px;
+}
+
+/* Sidebar Donation Styling*/
+.donation-aside-cont .row .col-12{
+    /*background-color: #EDFFFF;*/
+    background-color: #659ad2;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.custom-heading-sidebar .custom-sidebar-head-bg{
+    color: #FFF;
+    background-color: #154272;
+    padding: 6px 12px;
+}
+
+.donation-aside-cont .plus-treatment p{
+    /*color: #154272;*/
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: inherit !important;
+}
+.form-control {
+    webkit-appearance: auto;
+    -moz-appearance: auto;
+    appearance: auto;
+}
+/*.donation-aside-cont .aside-donate-amount2{*/
+/*    display: none;*/
+/*}*/
+
+.donation-aside-cont .aside-donate-amount label,
+.donation-aside-cont .aside-donate-amount2 label,
+.donation-aside-cont .aside-donate-types label{
+    width: 100%;
+    cursor: pointer;
+}
+
+.donation-aside-cont .aside-donate-amount input[type="radio"],
+.donation-aside-cont .aside-donate-amount2 input[type="radio"],
+.donation-aside-cont .aside-donate-types input[type="radio"]{
+    display: none;
+}
+
+.donation-aside-cont .aside-donate-amount input[type="radio"]:checked + label,
+.donation-aside-cont .aside-donate-amount2 input[type="radio"]:checked + label,
+.donation-aside-cont .aside-donate-types input[type="radio"]:checked + label{
+    background-color: #FF8031;
+    color: #FFF;
+    border: 2px solid #FF8031;
+}
+
+.donation-aside-cont .aside-donate-types .donate-single{
+    background-color: #ffffff;
+    /*border: 2px solid #659ad2;*/
+    border: 2px solid #ffffff;
+    color: #659ad2;
+}
+
+.donation-aside-cont .aside-donate-types .p-r{
+    padding-right: 0px;
+}
+
+.donation-aside-cont .aside-donate-types .p-l{
+    padding-left: 0px;
+}
+
+.donation-aside-cont .aside-donate-types .donate-monthly{
+    /*border: 2px solid #659ad2;*/
+    border: 2px solid #ffffff;
+    color: #154272;
+    background-color: #FFF;
+}
+
+.donation-aside-cont .aside-donate-amount2 .col-3 label,
+.donation-aside-cont .aside-donate-amount .col-3 label{
+    background-color: #f1f1f1;
+    /*border: 2px solid #659ad2;*/
+    border: 2px solid #f1f1f1;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.donation-aside-cont .custom-amount-input .custom-amount{
+    border: 1px solid #659ad2;
+    padding: .375rem .75rem;
+}
+
+.donation-aside-cont .side-dnt-cont .side-dnt-btn{
+    color: #FFF;
+    font-weight: bold;
+    background-color: #d20001;
+}
+
+.donation-aside-cont .side-dnt-cont .side-dnt-btn .fa-chevron-right{
+    padding-left: 10px;
+}
+
+
+/* Donation 100 Styling*/
+
+.hundred-snippet{
+    background-color:#659ad2;
+}
+
+.hundred-snippet-title h1,
+.hundred-snippet-title h5{
+    /*color: #FFF;*/
+    /*padding: 5px 20px;*/
+    /*border-radius: 3px;*/
+    /*display: inline-block;*/
+    /*background-color: #FF8031;*/
+    color: #ff8031;
+    padding: 5px 20px;
+    border-radius: 3px;
+    display: inline-block;
+    background-color: #ffffff;
+}
+
+.hundred-snippet-title p {
+    color: #FFF;
+    height: 66px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hundred-snippet .hundred-snippet-desc p {
+    /*color: #154272;*/
+    color:#fff;
+    font-weight: bold;
+    height: 66px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hundred-snippet .hundred-snippet-btn .btn-100{
+    background-color: #d20001;
+    color: #FFF;
+    max-width: 60%;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.hundred-snippet-btn{
+    text-align:center;
+}
+
+@media screen and (max-width: 812px){
+    .hundred-snippet .hundred-snippet-btn .btn-100 {
+        max-width: 70%;
+    }
+}
+
+/* Checkout Page Styling*/
+
+.checkout-page-content .checkout-form select,
+.checkout-page-content .checkout-form textarea,
+.checkout-page-content .checkout-form input{
+    padding: 10px;
+    border: 1px solid #659ad2;
+}
+
+.checkout-page-content .checkout-form label{
+    color: #154272;
+    font-weight: 500;
+}
+
+.checkout-page-content .checkout-form textarea::placeholder,
+.checkout-page-content .checkout-form input::placeholder{
+    font-size: 14px;
+}
+
+.checkout-form .heading-bottom-checkout h2,
+.checkout-form .heading-checkout h2{
+    color: #154272;
+    font-weight: 600;
+}
+
+.cart-button-cc .cc-btn{
+    background-color: #6591d2;
+    color: #FFF;
+    border: 1px solid #6591d2;
+}
+
+.cart-button .check-btn-donate{
+    background-color: #B81516;
+    color: #FFF;
+    border: 1px solid #B81516;
+}
+
+.cart-button-pp .pp-btn{
+    background-color: #154272;
+    color: #FFF;
+    border: 1px solid #154272;
+}
+
+
+.checkout-summry #checkout-page-sidebar {
+    min-height: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 9%;
+}
+
+
+.checkout-summry .donation-summry-cont{
+    background-color: #154272;
+}
+
+.checkout-summry .donation-all-total{
+    background-color: #154272;
+}
+
+.checkout-summry .donation-all-total p{
+    color: #FFF;
+}
+
+.checkout-summry .donation-summry-heading{
+    color: #FFF;
+    font-weight: 600;
+}
+
+.checkout-summry .donation-types {
+    height: 190px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: #f5f5f5;
+}
+
+.checkout-summry .donation-col-each{
+    padding-bottom: 5px;
+    border-bottom: 2px solid #154272;
+}
+
+
+.checkout-summry .donation-col-each span{
+    font-size: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.checkout-summry .donation-col-each .donate-qty{
+    width: 50px;
+    padding-left: 10px;
+}
+
+
+/* Thank You Page Styling*/
+.thankyou-container .thankyou-row h1{
+    color: #154272;
+    font-weight: bold;
+}
+
+.thankyou-container .thankyou-row i{
+    color: #154272;
+}
+
+.rmp-menu-additional-content .nav-mob-phone-p .nav-mob-phone{
+    color: #FFF !important;
+}
+
+/*Contact Us Main Page*/
+
+.contact-us-main-page .contact-page-form form label{
+    width: 100% !important;
+    padding: 10px 0px;
+    color: #154272;
+}
+
+.contact-us-main-page .contact-page-form form .wpcf7-submit{
+    background-color: #154272;
+    color: #FFF;
+    outline: none;
+    border: none;
+    padding: 10px 50px;
+    transition: all ease 0.5s;
+}
+
+.contact-us-main-page .contact-page-form form .wpcf7-submit:hover{
+    background-color: #659ad2;
+}
+
+/* Volunteer Form*/
+
+.volunteer-signup-form form select,
+.volunteer-signup-form form textarea,
+.volunteer-signup-form form input{
+    border: 1px solid #659ad2;
+}
+
+.volunteer-signup-form form input{
+    padding: 6px 10px;
+}
+
+.volunteer-signup-form form select{
+    color: #154272;
+}
+
+.volunteer-signup-form form .wpcf7-submit{
+    background-color: #154272;
+    color: #FFF;
+    outline: none;
+    border: none;
+    padding: 10px 50px;
+    transition: all ease 0.5s;
+}
+
+.volunteer-signup-form form .wpcf7-submit:hover{
+    background-color: #659ad2;
+}
+
+.wpcf7-response-output{
+    border-color: #b81514 !important;
+    margin: 0px important;
+    padding: 0.2em 1.2em important;
+}
+
+
+/* Zakat Calculator Stylings*/
+
+.zakat-caculator-page{
+    background-color: #F8F8F8;
+}
+
+.zakat-calc-content .zakat-heading{
+    color: #154272;
+    font-weight: bold;
+}
+
+.zakat-calc-content .what-own input,
+.zakat-calc-content .what-owe input{
+    border: 1px solid #659ad2;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.zakat-calc-content .what-own label,
+.zakat-calc-content .what-owe label{
+    width: 100%;
+    color: #154272;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding-bottom: 5px;
+}
+
+.zakat-calc-content .what-own fieldset,
+.zakat-calc-content .what-owe fieldset{
+    padding: 10px 0px;
+}
+
+.zakat-calc-content .what-own .ztitle,
+.zakat-calc-content .what-owe .ztitle{
+    color: #729ad2;
+    font-weight: bold;
+}
+
+.zakat-calc-content .what-own .ztotal,
+.zakat-calc-content .what-owe .ztotal{
+    font-weight: bold;
+    color: #154272;
+}
+
+.zakat-calc-content .check-zakat h2,
+.zakat-calc-content .check-zakat h3{
+    color: #154272;
+}
+
+.zakat-calc-content .check-zakat .zakat-pay-btn{
+    background-color: #FF8031;
+    border: none;
+    outline: none;
+    color: #FFF;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 40px;
+    letter-spacing: 2px;
+    transition: all ease 0.5s;
+}
+
+.zakat-calc-content .check-zakat .zakat-pay-btn:hover{
+    background-color: #b81516;
+}
+
+/* Accordian Ramadan Page*/
+
+.ramadan-accordion .vc_tta-panel.vc_active .vc_tta-panel-heading{
+    background-color: #659ad2 !important;
+}
+
+.ramadan-accordion .vc_tta-panel-title{
+    font-size: 16px;
+}
+
+.ramadan-accordion .vc_tta-panel .vc_tta-controls-icon::before{
+    border-color: #060d2e !important;
+}
+
+.ramadan-accordion .vc_tta-panel-title a{
+    color: #060d2e !important;
+}
+
+.ramadan-accordion .vc_tta-panel.vc_active .vc_tta-panel-title a{
+    color: #FFF !important;
+}
+
+.ramadan-accordion .vc_tta-panel.vc_active .vc_tta-controls-icon::before{
+    border-color: #FFF !important;
+}
+
+
+
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+@media screen and (min-width: 2000px){
+    .content-max-limit {
+        left: 50% !important;
+        transform: translate(-50%) !important;
+        width: 1440px !important;
+        margin: 0 auto !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .content-custom-padding{
+        padding: 0px 40px !important;
+    }
+
+    .content-max-limit-2 {
+        width: 1440px !important;
+        margin: 0 auto !important;
+    }
+
+}
+
+/*Responsiveness*/
+
+@media screen and (max-width: 1200px){
+
+    .header-lower.sticky-nav .main-navigation .menu .menu-item {
+        padding: 12px 19px;
+    }
+
+    .header-lower.sticky-nav .main-navigation .menu .menu-item.menu-item-has-children::after {
+        right: 8px;
+        top: 21px;
+    }
+
+
+    .header-cta p {
+        padding: 0px 6px;
+    }
+
+    .header-cta .social-media-links i {
+        padding: 0px 6px;
+    }
+
+    .projects-arc-btns .project-btn {
+        padding: 2px 10px;
+    }
+
+}
+
+@media screen and (max-width: 992px){
+
+    .header-lower.sticky-nav .sticky-logo-cont .sticky-logo {
+        width: 40px;
+    }
+
+    .main-navigation .menu .menu-item{
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+
+    .main-navigation .menu .menu-item.menu-item-has-children::after {
+        right: 0px;
+        top: 17px;
+    }
+
+    .header-lower.sticky-nav .main-navigation .menu .menu-item {
+        padding: 10px 15px 10px 10px;
+        font-size: 12px;
+    }
+
+    .header-lower.sticky-nav .main-navigation .menu .menu-item.menu-item-has-children::after {
+        right: 6px;
+        top: 13px;
+    }
+
+    .sawaed-navbar .cart-icon .fa-shopping-basket{
+        padding: 8px 9px;
+        font-size: 14px;
+    }
+
+    .home-sliders .desktop-slider{
+        display: none;
+    }
+
+    .home-sliders .mobile-slider{
+        display: block;
+    }
+
+    .subscribe-input .mc4wp-form input {
+        width: 240px;
+    }
+
+    .header-cta{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .header-cta p {
+        padding: 0px 5px;
+    }
+
+    .header-cta .social-media-links{
+        margin-top: 10px;
+    }
+
+    .header-cta .social-media-links i {
+        padding: 0px 15px;
+    }
+
+    .home-our-project .projects-arc-btns{
+        flex-direction: column;
+    }
+
+    .home-our-project .projects-arc-btns .project-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .home-appeals .lvca-posts-carousel-item .lvca-entry-text-wrap .entry-title {
+        font-size: 20px !important;
+    }
+
+    .projects-arc-btns .project-btn {
+        padding: 2px 20px;
+    }
+
+    .appeals-item .appeals-title-bg h3 {
+        font-size: 22px;
+    }
+
+    .each-related-post .white-bg-related-post a.each-related-post-title {
+        font-size: 18px;
+    }
+
+    .white-bg-related-post .readm-csrd-btn a{
+        padding: 3px 10px;
+    }
+
+    .donate-card .donation-amount-fields .col-3 label,
+    .donation-aside-cont .aside-donate-amount2 .col-3 label,
+    .donation-aside-cont .aside-donate-amount .col-3 label{
+        font-size: 12px;
+    }
+
+
+
+
+}
+
+@media screen and (max-width: 812px){
+    .header-cta{
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    .header-cta .header-call,
+    .header-cta .header-email,
+    .header-cta .social-media-links{
+        display: none;
+    }
+
+    .cart-icon-mob{
+        display: block;
+        padding-right: 50px;
+    }
+
+    .donate-heading h5{
+        font-size: 18px;
+    }
+
+    .form-control {
+        webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    .header-main .header-lower{
+        display: none;
+    }
+
+    #rmp-container-97{
+        background-color: #154272 !important;
+    }
+
+    #rmp-container-97 #rmp-menu-wrap-97{
+        margin-top: 10px;
+    }
+
+    #rmp-menu-wrap-97 .rmp-menu-subarrow,
+    #rmp-menu-wrap-97 .rmp-menu-item .rmp-menu-item-link {
+        background-color: #659ad2 !important;
+    }
+
+    #rmp-container-97 .rmp-menu-wrap .zakat-calc-btn.rmp-menu-item,
+    #rmp-container-97 .rmp-menu-wrap .navbar-donate-btn.rmp-menu-item {
+        margin: 20px;
+        width: auto;
+    }
+
+    #rmp-container-97 .rmp-menu-wrap .navbar-donate-btn .rmp-menu-item-link {
+        background-color: #b81516 !important;
+        text-align: center;
+        border-radius: 3px;
+        padding: 0px !important;
+    }
+
+    #rmp-container-97 .rmp-menu-wrap .zakat-calc-btn .rmp-menu-item-link{
+        background-color: #FF8031 !important;
+        text-align: center;
+        border-radius: 3px;
+        padding: 0px !important;
+    }
+
+}
+
+
+@media screen and (max-width: 767px){
+    .cart-icon-mob{
+        padding-right: 0px;
+        padding-bottom: 10px;
+    }
+
+    .quick-donate-container {
+        margin: 0px;
+    }
+
+    .home-sliders .quick-donate-container .quick-donate {
+        margin-top: 0px;
+    }
+
+    .home-sliders .mobile-slider {
+        display: block;
+        margin-bottom: 0;
+    }
+
+    .subscibe-section .subscribe-desc{
+        text-align: center;
+    }
+
+    .subscibe-section .subscribe-input-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .subscribe-input {
+        margin-top: 10px;
+        padding: 0px 10px
+    }
+
+
+    .home-appeals .lvca-posts-carousel-item .lvca-entry-text-wrap .entry-title {
+        font-size: 13px !important;
+    }
+
+    .home-appeals .lvca-posts-carousel-item .appeals .lvca-entry-text-wrap {
+        padding: 10px 20px;
+    }
+
+    .appeals-item .appeals-title-bg h3 {
+        font-size: 25px;
+    }
+
+    .religious-dues-item .projects-arc-btns,
+    .projects-item .projects-arc-btns{
+        flex-direction: column;
+    }
+
+    .religious-dues-item .projects-arc-btns .project-btn,
+    .projects-item .projects-arc-btns .project-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .quick-donate-container .donate-heading{
+        padding: 10px 0px;
+    }
+
+    .quick-donate-container .quick-donate{
+        margin-top: 0px;
+    }
+
+    .quick-donate-btn button{
+        width: 100%;
+    }
+
+    .quick-donate-row{
+        padding: 0px 10px;
+    }
+
+    .quick-donate-container .select-amount,
+    .quick-donate-container .select-country,
+    .quick-donate-container .select-type{
+        margin-bottom: 10px;
+    }
+
+    .each-related-post .white-bg-related-post a.each-related-post-title{
+        font-size: 24px;
+    }
+
+    .white-bg-related-post .readm-csrd-btn a{
+        padding: 5px 15px;
+    }
+
+    .donate-card .donation-amount-fields .col-3 label,
+    .donation-aside-cont .aside-donate-amount .col-3 label,
+    .donation-aside-cont .aside-donate-amount2 .col-3 label{
+        font-size: 16px;
+    }
+
+    .about-us-absolute .about-us-absolute-image figure {
+        bottom: 0px;
+        width: 300px;
+    }
+
+    .donate-heading h5{
+        font-size: 20px;
+    }
+
+    .hundred-snippet .hundred-snippet-desc p,
+    .hundred-snippet-title p {
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width: 670px){
+    .cart-icon-mob{
+        padding-right: 20px;
+    }
+
+}
+
+@media screen and (max-width: 576px){
+    .header-top .site-branding img{
+        width: 200px;
+    }
+
+    .cart-icon-mob{
+        padding-right: 60px;
+        padding-bottom: 0px;
+    }
+
+    .home-appeals .lvca-posts-carousel-item .lvca-entry-text-wrap .entry-title {
+        font-size: 11px !important;
+    }
+
+    .btn-to-top{
+        bottom: 60px;
+        right: 20px;
+    }
+
+    .religious-dues-item .projects-arc-btns,
+    .projects-item .projects-arc-btns{
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0px;
+    }
+
+    .religious-dues-item .projects-arc-btns .project-btn,
+    .projects-item .projects-arc-btns .project-btn {
+        width: auto;
+        margin-bottom: 0px;
+    }
+
+    .about-us-page-separator .about-us-separator::before{
+        width: 140px;
+    }
+
+    .custom-modal-header .btn-close {
+        padding: 12px !important;
+    }
+
+}
+
+
+@media screen and (max-width: 480px){
+    .home-our-project .projects-arc-btns{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .home-our-project .projects-arc-btns .project-btn {
+        width: auto;
+    }
+
+    .home-appeals .lvca-posts-carousel-item .lvca-entry-text-wrap .entry-title {
+        font-size: 17px !important;
+    }
+
+    .subscribe-input .mc4wp-form input {
+        width: 200px;
+    }
+
+    .appeals-item .appeals-title-bg h3 {
+        font-size: 20px;
+    }
+
+    .modal-body .donation-col-each .donate-qty {
+        width: 30px !important;
+    }
+
+    .modal .donation-col-each .donation-title{
+        font-size: 13px;
+    }
+
+    .modal .donation-col-each .fa-times {
+        padding: 3px;
+        width: 17px;
+        height: 17px;
+        font-size: 12px;
+    }
+
+    .modal .support-donation-pop .support-heading {
+        font-size: 14px;
+    }
+
+    .modal .donation-col-each .fa-times {
+        padding: 5px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .modal-footer .card-fees label{
+        font-size: 14px;
+    }
+
+    .about-us-absolute .about-us-absolute-image figure {
+        width: 250px;
+    }
+
+}
+
+
+@media screen and (max-width: 320px){
+    .cart-icon-mob {
+        padding-right: 50px;
+    }
+    .projects-arc-btns .project-btn {
+        padding: 2px 15px;
+    }
+
+    .home-appeals .lvca-posts-carousel-item .lvca-entry-text-wrap .entry-title {
+        font-size: 16px !important;
+    }
+
+    .modal-body .donation-col-each .row > div{
+        padding: 0px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .modal .donation-col-each .fa-times {
+        padding: 3px;
+        width: 17px;
+        height: 17px;
+    }
+
+    .modal-footer .card-fees label {
+        font-size: 16px;
+    }
+
+    .about-us-absolute .about-us-absolute-image figure {
+        width: 200px;
+    }
+
+    .main-page-volunteer-section p {
+        font-size: 20px;
+    }
+
+}
+
+.more-amount {
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+    border: none !important;
+    padding: 8px !important;
+    border-radius: 0 !important;
+    background: #154272 !important;
+    color: #fff !important;
+    outline: none;
+}
+.slick-slide {
+    height:auto !important;
+}
+.quickImagedonate {
+    cursor:pointer;
+}
+select:after{
+    font-family: FontAwesome5;
+    content: '\f107';
+    font-size: 28px;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    color: #434B67;
+    pointer-events: none;
+}
+.plus-treatment p {
+    color: #154272;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: inherit !important;
+}
+
+
+.modalx {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 6666;/* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-contentx {
+    background-color: #fefefe;
+    margin: 5% auto;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px;
+    padding: 0;
+}
+
+/* The Close Button */
+.closex {
+    color: #00a29d;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -28px;
+    background: #004070;
+    margin-right: -22px;
+    padding: 4px 8px 7px 9px;
+    border-radius: 45px;
+    border: 2px solid #fff;
+}
+
+.closex:hover,
+.closex:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.quick-donate-footer {
+    bottom: 0px;
+    position: fixed;
+    display: none;
+    z-index: 666;
+}
+.donate-heading-ft {
+    background-color: rgba(254, 139, 68, 0.9);
+}
+
+
+.donate-heading-ft h5 {
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.quick-donate .donate-cta-ft {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.qd_open_tab {
+    margin: 0px auto 0px auto;
+    padding: 0px 0px 0px 0px;
+    width: 180px;
+    height: 42px;
+    background-color: #c70000;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: none;
+}
+.qd_panel {
+    margin: 0px auto 0px auto;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+    text-align: center;
+}
+.qd_open_tab_h1 {
+    margin: 0px 0px 0px 0px;
+    padding: 13px 0px 0px 0px;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: inherit;
+}
+.page-template-checkout-page .footer-main {
+    padding: 50px 0px 0px 0px;
+}
+
+@media screen and (max-width:992px) {
+    .quick-donate-footer {
+        bottom: -192px;
+    }
+    .qd_open_tab {
+        display: block;
+    }
+    .slide-up {
+        bottom: 0px !important;
+    }
+    .slide-down {
+        bottom: -192px !important;
+    }
+    .quick-donate-footer .quick-donate-container {
+        margin: 0px 0px 0px 0px;
+    }
+    .quick-donate-footer .donate-heading-ft {
+        display: none !important;
+    }
+    .modalR-content {
+        width: 90% !important;
+    }
+    .gf-modal-content {
+        width: 90% !important;
+    }
+}
+
+/* row-reverse Media Query */
+
+@media screen and (max-width: 767px){
+    .row-reverse {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -webkit-box-orient: vertical;
+        -ms-box-direction: reverse;
+        -moz-box-direction: reverse;
+        -webkit-box-direction: reverse;
+        -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+    }
+}

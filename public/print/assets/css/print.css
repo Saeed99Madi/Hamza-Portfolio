@@ -1,0 +1,542 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+body {
+    margin: 0 auto;
+    font-size: 14px;
+    max-width: 800px;
+    width: 100%;
+      -webkit-print-color-adjust: exact !important;
+
+  }
+
+  table {
+      width: 100%;
+  }
+  
+  .header, .t-head, .footer, .t-foot {
+    /* height: 140px; */
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    background: #fff;
+  }
+
+  .header, .t-head {
+    height: 140px;
+  }
+  .header h5, .header h3, .t-head h5, .t-head h3, .footer h5, .footer h3, .t-foot h5, .t-foot h3 {
+    margin: 5px;
+    color: #555;
+  }
+  
+  .footer, .t-foot {
+    /* height: 25px; */
+  }
+  
+  .t-head, .t-foot {
+    background: #fff;
+  }
+  
+  .pr {
+    position: fixed;
+    right: 0;
+    bottom: 10px;
+    color: #aaa;
+    letter-spacing: 1px;
+    font-weight: normal;
+    text-decoration: none;
+  }
+  
+  .header {
+    position: fixed;
+    top: 0;
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 0px;
+  }
+  .footer h3 {
+    color: #aaa;
+  }
+  
+  .content {
+    background: #ffffff;
+    padding: 2.5rem;
+    margin-top: 0;
+    padding-top: 33px;
+  }
+  .content .page {
+    page-break-after: always;
+    position: relative;
+  }
+  .content .page h5 {
+    display: inline-block;
+    color: #000;
+    padding: 5px 10px;
+    border-bottom: 2px solid #aaa;
+    border-radius: 20px;
+    letter-spacing: 2px;
+  }
+  .content .page pre {
+    background: #f5f5f5;
+    border-left: 5px solid #ccc;
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+  .content .page img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    border: 1px dashed #ccc;
+  }
+  
+  
+  /* Page styles */
+  .header .basmala {
+  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  }
+
+  .header .basmala svg {
+    width: 11rem;
+    height: auto;
+    }
+  
+    .header .header-content {display: flex;align-items: center;justify-content: space-between;position: relative;width: 100%;background: #56e203;border-radius: 0.6rem 0.6rem 0 0;}
+    .header .header-content:after {
+        content: '';
+        background: #2c2c2c;
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        z-index: -1;
+        right: 0;
+    }
+  
+  .header .header-content .arabic-name {
+  padding-right: 1rem;
+  }
+  
+  .header .header-content .arabic-name h2 {
+  font-size: 1rem;
+  margin: 10px 0;
+  }
+  
+  .header .header-content .logo-center {position: absolute;right: calc(50% - 3.75rem);left: auto;background: white;border-radius: 50%;padding: 0.2rem;}
+  
+  .header .header-content .logo-center .logo {border: none;border-radius: 50%;width: 7rem;height: 7rem;object-fit: cover;}
+  
+  .header .header-content .english-name {
+  
+  }
+
+  
+  .header .header-content .english-name h2 {
+  padding-left: 1rem;
+  font-size: 1rem;
+  margin: 0;
+  }
+
+  .footer .footer-content  {
+      position: relative;
+ 
+    }
+
+    .footer .footer-content:after {
+        content: '';
+        background: #2c2c2c;
+        top: -6px;
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        right: 0;
+    }
+
+    .footer .footer-content ul  {
+ display: flex;
+ flex-wrap: wrap;
+ list-style: none;
+ background: #56e203;
+ padding: 0.5rem;
+ }
+
+    .footer .footer-content ul li  {
+ width: 50%;
+ font-size: 0.7rem;
+ }
+
+    .footer .footer-content ul li span  {
+ font-weight: 600;
+ font-size: 0.7rem;
+ }
+
+
+
+  /* Style for page 1 */
+
+  .content .title {background: whitesmoke;display: flex;align-items: center;justify-content: center;padding: 0.3rem;}
+
+
+  .content .title h1 {margin: 0;font-size: 1.2rem;}
+
+
+.content .date {
+
+}
+
+.content .date h3 {font-weight: 300;}
+
+
+  
+  .page-content {position: relative}
+
+  .page:before {
+    content: '';
+    background: url(../images/large-logo.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.1;
+  }
+
+  .page-content p {position: relative;line-height: 37px;font-size: 1rem;}
+  .page-content p:first-child {
+    text-align: justify;
+    
+  }
+
+  .page-content p span {
+      display: inline-block;
+      position: relative;
+      text-align: center;
+      min-width: 3rem;
+}
+
+ .page-content p span:before {
+      position: absolute;
+      content: '';
+      bottom: 6px;
+      width: 100%;
+      height: 2px;
+      background: transparent;
+      right: 0px;
+      border-bottom: 0.13rem dashed black;
+}
+
+  .page-content p .name {
+      min-width: 13rem;
+}
+
+.page-content p .address {
+      min-width: 7rem;
+}
+
+.page-content p .id-card {
+      min-width: 9rem;
+}
+
+.page-content p .loan-number {
+      min-width: 3rem;
+}
+
+.page-content p .loan-text {
+      min-width: 16rem;
+}
+
+.page-content p .date {
+      min-width: 7rem;
+}
+
+.page-content p .loan-parts {
+      min-width: 4rem;
+}
+
+.page-content p .legal-obligation {
+      
+}
+
+.page-content p .legal-obligation {
+      
+}
+
+.page-content p .legal-obligation span:first-child {
+      
+}
+
+.page-content p .legal-obligation span:last-child {
+      min-width: 9rem;
+}
+
+.page-content p .writer-name {
+      min-width: 7rem;
+}
+
+.page-content p .project-name {
+      min-width: 11rem;
+}
+
+.page-content .notes p {
+    font-weight: 600;
+    text-align: justify;
+}
+
+.page-content .signatures {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.page-content .signatures .item {
+   width: 100%;
+   text-align: center;
+}
+
+.page-content .signatures.style-two .item:first-child {
+    text-align: right;
+ }
+
+ .page-content .signatures.style-two .item:last-child {
+    text-align: left;
+ }
+
+.page-content .signatures .item h4{
+   
+}
+
+  /* Style for page 2 */
+
+  .page-content .kafalla {
+
+  }
+
+  .page-content .kafalla .items {
+      padding-right: 0;
+      margin-right: 0;
+      list-style: none;
+}
+
+.page-content .kafalla .items li {
+      line-height: 40px;
+      font-size: 1.05rem;
+}
+
+.page-content .kafalla .items li span {
+    display: inline-block;
+    position: relative;
+    text-align: right;
+    min-width: 24rem;
+}
+
+.page-content .kafalla .items li span:before {
+    position: absolute;
+    content: '';
+    bottom: 6px;
+    width: 100%;
+    height: 2px;
+    background: transparent;
+    right: 0px;
+    border-bottom: 0.13rem dashed black;
+}
+
+.page-content .kafalla .items li .total-price {min-width: 3rem;text-align: center;}
+
+.page-content .kafalla .items li .currency {min-width: 4rem;text-align: center;}
+
+.page-content .kafalla .items li .budget-text {
+}
+
+
+/* 4 */
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg td{text-align: right;vertical-align: middle;}
+
+
+.tg td span {
+    display: inline-block;
+    min-width: 5rem;
+}
+.checkbox-items {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding-right: 0;
+    padding: 0rem 1rem;
+    margin: 0;
+}
+
+.ul .full-width {
+    width: 100%;
+}
+
+.others ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding-right: 0;
+    padding: 0rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.table-content h3 {
+    margin-bottom: 5px;
+}
+.required-documents ul {
+    list-style: none;
+    padding-right: 0;
+}
+
+.required-documents {
+    margin-bottom: 2rem;
+}
+
+.salam svg {
+    width: 14rem;
+    height: auto;
+}
+
+.sent-to h2 {
+    font-size: 1.1rem;
+}
+
+.sent-to h2 span {
+    margin-right: 4rem;
+    display: inline-block;
+}
+
+.salam {
+    margin-bottom: 2rem;
+}
+
+.top-numbers {text-align: left;direction: rtl;padding-bottom: 2rem;}
+
+.top-numbers .date {
+
+}
+
+.top-numbers .message-type {
+
+}
+
+.top-numbers .message-type span {
+    
+}
+
+.list ul li {
+    font-size: 1.1rem;
+    line-height: 34px;
+}
+
+.details ul li {
+    font-size: 1.2rem;
+    line-height: 44px;
+}
+
+.details ul li span {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+.details ul li span:before {
+    position: absolute;
+    content: '';
+    bottom: 6px;
+    width: 100%;
+    height: 2px;
+    background: transparent;
+    right: 0px;
+    border-bottom: 0.13rem dashed black;
+}
+
+
+.details ul li .name {
+    min-width: 13rem;
+}
+
+.details ul li .id-card {
+    min-width: 6rem;
+}
+
+.details ul li .account-number {
+    min-width: 5rem;
+}
+
+.details ul li .loan-number {
+    min-width: 9rem;
+}
+
+.details ul li .ammount {
+    min-width: 5rem;
+}
+
+.details ul li .loan-text {
+    min-width: 14rem;
+}
+
+.details ul li .parts-number {
+    min-width: 4rem;
+}
+
+.details ul li .date {
+    min-width: 6rem;
+}
+
+.details ul li .parts {
+    min-width: 5rem;
+}
+
+.details ul li:last-child {
+    margin-top: 3rem;
+}
+
+
+
+
+.list {
+margin-bottom: 2rem;
+}
+
+  @page {
+    size: auto;
+    margin: 0mm;
+    margin-left: 0.3in;
+    margin-right: 0.3in;  
+ 
+}
+  @media print {
+    body {
+      border: 0;
+      /* margin: 1.6cm; */
+    }
+  
+    thead {
+      display: table-header-group;
+    }
+  
+    tfoot {
+      display: table-footer-group;
+    }
+  
+    button {
+      display: none;
+    }
+  
+    body {
+      /* margin: 0; */
+    }
+  }

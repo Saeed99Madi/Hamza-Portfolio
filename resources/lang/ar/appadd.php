@@ -1,0 +1,85 @@
+<?php
+return [
+    'title' => 'نموذج طلب تمويل مشروع',
+    'name' => 'إسم مقدم الطلب (رباعي)',
+    'Entername' => 'أدخل الإسم',
+    'identity' => 'رقم الهوية',
+    'Enteridentity' => 'أدخل رقم الهوية',
+    'study' => 'المؤهل العلمي',
+    'Enterstudy' => 'أدخل ' . 'المؤهل العلمي',
+    'dob' => 'تاريخ الميلاد',
+    'Enterdob' => 'أدخل ' .'تاريخ الميلاد',
+    'mobile' => 'رقم الجوال',
+    'Entermobile' => 'أدخل ' .'رقم الجوال',
+    'tell' => 'رقم الهاتف',
+    'Entertell' => 'أدخل ' .'رقم الهاتف',
+    'address' => 'عنوان السكن',
+    'Enteraddress' => 'أدخل ' .'عنوان السكن',
+    'family_num' => 'عدد أفراد الأسره',
+    'Enterfamily_num' => 'أدخل ' .'عدد أفراد الأسره',
+    'income_1' => 'مصدر دخل الأسره',
+
+    'job_now' => 'مجال العمل الحالي',
+    'Enterjob_now' => 'أدخل ' .'مجال العمل الحالي',
+    'income_monthly' => 'متوسط الدخل الشهري',
+    'Enterincome_monthly' => 'أدخل ' .'متوسط الدخل الشهري',
+    'job_prev' => 'مجال العمل السابق',
+    'Enterjob_prev' => 'أدخل ' .'مجال العمل السابق',
+
+    'years_without_job' => 'عدد السنوات بدون عمل',
+    'Enteryears_without_job' => 'أدخل ' .'عدد السنوات بدون عمل',
+    'partner_job' => 'عمل الشريك',
+    'Enterpartner_job' => 'أدخل ' .'عمل الشريك',
+
+    'project_title' => 'إسم المشروع',
+    'project_place' => 'مكان إقامة المشروع',
+    'project_type' => 'نوع المشروع',
+    'project_desc' => 'وصف مختصر عن المشروع',
+    'project_req' => 'مستلزمات المشروع',
+    'project_beneficiary' => 'الفئة المستهدفة من منتجات المشروع',
+    'project_cost' => 'تكلفة المشروع الكلي بالدولار',
+    'project_finance' => 'مبلغ التمويل المطلوب بالدولار',
+    'project_income_monthly_expected' => 'الإيرادات الشهرية المتوقعه للمشروع بالدولار',
+    'project_pay' => 'مصادر سداد قيمة التمويل',
+    'project_similar' => 'عدد المشاريع المشابهة في المنطقة',
+    'project_administrator' => 'من سيقوم بإدارة المشروع',
+
+    'kafel1_name' => 'إسم الكفيل',
+    'kafel1_identity' => 'رقم الهوية',
+    'kafel1_address' => 'العنوان',
+    'kafel1_tell' => 'رقم الهاتف',
+    'kafel1_salary' => 'الراتب الشهري',
+    'kafel1_account' => 'رقم حساب الكفيل',
+    'kafel1_job_place' => 'جهة العمل',
+    'kafel1_bank' => 'راتب الكفيل محول الى بنك',
+
+    'kafel2_name' => 'إسم الكفيل',
+    'kafel2_identity' => 'رقم الهوية',
+    'kafel2_address' => 'العنوان',
+    'kafel2_tell' => 'رقم الهاتف',
+    'kafel2_salary' => 'الراتب الشهري',
+    'kafel2_account' => 'رقم حساب الكفيل',
+    'kafel2_job_place' => 'جهة العمل',
+    'kafel2_bank' => 'راتب الكفيل محول الى بنك',
+
+    'enter' => 'أدخل',
+
+    'appinfo' => 'بيانات خاصه بطلب التمويل',
+    'projectinfo' => 'بيانات خاصة بالمشروع',
+    'kafel1' => 'بيانات الكفيل الأول',
+    'kafel2' => 'بيانات الكفيل الثاني',
+
+    'craft' => 'هل تجيد حرفه معينه',
+    'expected_period_for_total_cost' => 'المدة المتوقعة لتغطية كامل تكاليف المشروع',
+
+    'project_administrator_other' => 'أخرين',
+
+    'img_identity' => 'صورة هوية متضمنة صفحة الأبناء',
+    'img_salary' => 'صورة عن إستمارة راتب الكفيل لمدة ثلاثة شهور',
+    'img_kafel_identity' => 'صورة عن هوية الكفيل',
+    'img_kafel_salary' => 'كشف حساب الكفيل لمدة ثلاثة شهور',
+    'img_finance' => 'إلتزام مالي',
+
+    'documents' => 'مرفقات مطلوبة'
+]
+?>
