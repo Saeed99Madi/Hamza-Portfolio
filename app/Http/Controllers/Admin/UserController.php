@@ -11,13 +11,59 @@ use App\Models\Role;
 use Validator;
 use Dompdf\Dompdf;
 use DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends BaseController
 {
 	public function create()
     {
-        
         return view('cp.user.create');
+    }
+    public function changepassword()
+    {
+        return view('cp.user.changepass');
+    }
+    public function changepasswordFun(Request $request)
+    {
+	    $user = auth()->user();
+        $userId = $user->id;
+
+        $password = $request['password'];
+		$validator = Validator::make($request->all(), [
+            'oldpassword' => 'required',
+            'password' => 'required|confirmed|min:6',
+        ]);
+
+		if ($validator->passes()) {
+            //$user = User::where('id',$userId);
+			
+            if(is_null($password) == false) {
+
+                if (Hash::check($request['oldpassword'], $user->password)) {
+                }
+                else {
+                        return response()->json([
+			            'status'=> -1, 
+			            'msg' => 'e: ' . 'كلمة المرور القديمة غير صحيحه', 
+			            'toastr' => true,
+			            'reset' => true,
+                        //'popup_close' => true
+			            ]);
+                }
+            $user->update([
+				    'password' => bcrypt($request['password']),
+			    ]);
+
+			    return response()->json([
+			    'status'=> 1, 
+			    'msg' => 's: ' . __('msg.done'), 
+			    'toastr' => true,
+			    'reset' => true,
+                'popup_close' => true
+			    ]);
+            }
+        }
+    	return response()->json(['error'=>$validator->errors()->messages()]);
     }
 	public function store(Request $request)
     {

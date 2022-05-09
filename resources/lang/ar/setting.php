@@ -12,5 +12,6 @@ return [
 
     'logo' => 'logo',
     'favicon' => 'favicon',
+    'footer' => 'footer logo',
 ]
 ?>

@@ -100,8 +100,8 @@ Route::get('/user/role/{id?}', [UserController::class, 'user_role_view'])->name(
 
 Route::post('/user/role', [UserController::class, 'user_role_store'])->name('user-role-store');
 
-
-
+Route::get('/user/changepassword', [UserController::class, 'changepassword'])->name('changepassword');
+Route::post('/user/changepassword', [UserController::class, 'changepasswordFun'])->name('changepassword');
 
 Route::get('/role/view', [RoleController::class, 'view'])->name('role-view');
 

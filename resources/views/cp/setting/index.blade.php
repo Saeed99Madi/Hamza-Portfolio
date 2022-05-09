@@ -134,13 +134,26 @@
                                 <div class="col-md-6">
 									<div class="form-group">
 										<label style="clear: both; display: block; margin-bottom: 20px;">{{__("setting.logo")}}</label>
-                                        <img style="" src="{{ route("admin.setting.getimg") }}/1&&date=<%date%>">
+                                        <img style="width: 200px;" src="{{ route("admin.setting.getimg") }}/1?type=1&&date=<%date%>">
                                     </div>
 								</div>
                                 <div class="col-md-6">
 									<div class="form-group">
 										<label style="clear: both; display: block; margin-bottom: 20px;">{{__("setting.favicon")}}</label>
-                                        <img style="" src="{{ route("admin.setting.getimg") }}/2&&date=<%date%>">
+                                        <img style="width: 200px;" src="{{ route("admin.setting.getimg") }}/2?type=2&&date=<%date%>">
+                                    </div>
+								</div>
+                                <div class="col-md-6">
+									<div class="form-group">
+										<label style="clear: both; display: block;">{{__("setting.footer")}}</label>
+                                        <input type="file" id="footer" name="footer">
+										<span class="fv-plugins-message-container invalid-feedback" role="alert"><strong class="error_text"></strong></span>
+									</div>
+								</div>
+                                 <div class="col-md-6">
+									<div class="form-group">
+										<label style="clear: both; display: block; margin-bottom: 20px;">{{__("setting.footer")}}</label>
+                                        <img style="width: 200px;" src="{{ route("admin.setting.getimg") }}/3?type=3&&date=<%date%>">
                                     </div>
 								</div>
 							</div>

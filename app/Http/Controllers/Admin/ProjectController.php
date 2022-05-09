@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Kind;
@@ -165,8 +165,6 @@ class ProjectController extends BaseController
     }
     public function editpost(Request $request)
     {
-        echo ('sdsdsdssdsds');
-
         if($request->hasFile('file')){
 		    $validator = Validator::make($request->all(), [
                 'title' => 'required|max:200',
@@ -222,7 +220,9 @@ class ProjectController extends BaseController
             $catid = $request['catid'];
             $kindid = $request['kindid'];
             $count = Project::where('id',$id)->count();
-            if($request->images){
+            
+			/*
+			if($request->images){
                 $project = Project::findOrFail($id);
                 $images =explode(',',$project->images) ;
                 foreach ($images as $image){
@@ -235,7 +235,16 @@ class ProjectController extends BaseController
                     $image_g->move()($destinationPath,$imageName);
                     $imagesname = $imagesname .','.$imageName;
                 }
+            }*/
+
+			$imagesname = '';
+            if($file = $request->hasFile('image_g')) {
+                $file = $request->file('image_g');
+                $imagesname = 'ic' . time().'.'.$request->image_g->getClientOriginalExtension();//$file->getClientOriginalName() ;
+                $destinationPath = public_path().'/upload' ;
+                $file->move($destinationPath,$imagesname);
             }
+
             if($count > 0){
                 Project::where('id',$id)->update([
                 'title' => $request['title'],
@@ -255,7 +264,9 @@ class ProjectController extends BaseController
                     Project::where('id',$id)->update([
                     'icon' => $img_icon
                     ]);
-                }if($imagesname){
+                }
+				
+				if($imagesname){
                     Project::where('id',$id)->update([
                     'images' => $imagesname,
                     ]);

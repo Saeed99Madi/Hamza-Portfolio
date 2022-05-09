@@ -124,8 +124,11 @@
             <!--begin::Brand-->
             <div class="aside-logo flex-column-auto" id="kt_aside_logo">
                 <!--begin::Logo-->
-                <a href="../../demo1/dist/index.html">
-                    <img alt="Logo" src="{{ asset('assets/media/logos/logo-1.svg') }}" class="h-15px logo" />
+                <a>
+                    <!--<img alt="Logo" src="{{ asset('assets/media/logos/logo-1.svg') }}" class="h-15px logo" />-->
+                    <span style="color: #fff; font-size: 12pt;">
+                    لوحة التحكم
+                    </span>
                 </a>
                 <!--end::Logo-->
                 <!--begin::Aside toggler-->
@@ -161,7 +164,7 @@
             </div>
             <!--end::Aside menu-->
             <!--begin::Footer-->
-            <div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
+            <!--<div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
                 <a href="../../demo1/dist/documentation/getting-started.html" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="200+ in-house components and 3rd-party plugins">
                     <span class="btn-label">Docs &amp; Components</span>
                     <span class="svg-icon btn-icon svg-icon-2">
@@ -175,9 +178,8 @@
 									</g>
 								</svg>
 							</span>
-                    <!--end::Svg Icon-->
                 </a>
-            </div>
+            </div>-->
             <!--end::Footer-->
         </div>
         <!--end::Aside-->
@@ -1953,6 +1955,12 @@
                                 <!--begin::User-->
                                 <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                                     <!--begin::Menu wrapper-->
+                                    <a href="{{route("changepassword")}}" style="margin: 20px; color: #000;">
+                                    تغيير كلوة المرور
+                                    </a>
+                                    <a href="{{route("admin.logout")}}" style="margin: 20px; color: #000;">
+                                    تسجيل خروج
+                                    </a>
                                     <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
                                         <img src="{{ asset('assets/media/avatars/150-26.jpg') }}" alt="metronic" />
                                     </div>
@@ -2158,14 +2166,14 @@
                 <!--begin::Container-->
                 <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
                     <!--begin::Copyright-->
-                    <div class="text-dark order-2 order-md-1">
+                    <!--<div class="text-dark order-2 order-md-1">
                         <span class="text-muted fw-bold me-1">2021©</span>
                         <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
-                    </div>
+                    </div>-->
                     <!--end::Copyright-->
                     <!--begin::Menu-->
                     <ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
-                        <li class="menu-item">
+                        <!--<li class="menu-item">
                             <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
                         </li>
                         <li class="menu-item">
@@ -2173,7 +2181,7 @@
                         </li>
                         <li class="menu-item">
                             <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
-                        </li>
+                        </li>-->
                     </ul>
                     <!--end::Menu-->
                 </div>

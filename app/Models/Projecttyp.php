@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Projecttyp extends Model
 {
-    protected $table = 'projecttypes';
+    protected $table = 'projecttyps';
     protected $fillable = [
         'project_id',
         'type_id'

@@ -43,6 +43,13 @@ class SettingController extends BaseController
                 $file->move($destinationPath,$img_favicon);
             }
 
+            $img_footer = '';
+            if($file = $request->hasFile('footer')) {
+                $file = $request->file('footer');
+                $img_footer = time().'.'.$request->footer->getClientOriginalExtension();//$file->getClientOriginalName() ;
+                $destinationPath = public_path().'/upload' ;
+                $file->move($destinationPath,$img_footer);
+            }
             if($count == 0){
 			    Setting::create([
 				    'facebook' =>  $request['facebook'],
@@ -80,6 +87,11 @@ class SettingController extends BaseController
                 'favicon' => $img_favicon
                 ]);
             }
+            if($img_footer){
+                Setting::first()->update([
+                    'footerLogo' => $img_footer
+                ]);
+            }
 			return response()->json([
 			'status'=> 1, 
 			'msg' => 's: ' . __('msg.done'), 
@@ -96,11 +108,16 @@ class SettingController extends BaseController
     {
         $obj = Setting::first();
         if($obj){
-            if($type == 1){
+            if($type == 1){ 
                 return response()->file("upload/".$obj->logo);
             }
-            else{
+            else if($type == 2){               
+
                 return response()->file("upload/".$obj->favicon);
+            }
+            else if($type == 3){
+
+                return response()->file("upload/".$obj->footerLogo);
             }
         }
         else{

@@ -26,10 +26,6 @@ class SiteController extends Controller
     }
 	public function index()
     {
-
-
-
-
         $slider = Projecttyp::where('type_id', '=', 1);
         $ar1 = $slider->get()->toArray();
         $st1 = implode(',', array_column($ar1, 'project_id'));
