@@ -30,6 +30,7 @@ class ProjectTypeController extends BaseController
         ], [], __('projecttype'));
 
         $active = $request->active ? 1 : 0;
+		$main = $request->main ? 1 : 0;
 
 		if ($validator->passes()) 
         {
@@ -53,7 +54,8 @@ class ProjectTypeController extends BaseController
             'subtitle' => $request['subtitle'],
 			//'desccode' => $request['desccode'],
             //'file' => $img_cat,
-            'active' => $active
+            'active' => $active,
+			'main' => $main
             ]);
             //$count = Profile::where('users_id', '=', ["{$userid}"])->count();
             
@@ -102,6 +104,7 @@ class ProjectTypeController extends BaseController
             ], [], __('projecttype'));
         }
         $active = $request->active ? 1 : 0;
+		$main = $request->main ? 1 : 0;
 
 		if ($validator->passes()) 
         {
@@ -128,7 +131,8 @@ class ProjectTypeController extends BaseController
                 'subtitle' => $request['subtitle'],
 			    //'desccode' => $request['desccode'],
                 //'file' => $img_cat,
-                'active' => $active
+                'active' => $active,
+				'main' => $main
                 ]);
 
                 /*if($img_cat){

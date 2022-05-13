@@ -100,8 +100,48 @@ class SiteController extends Controller
         $members = Member::all();
         $projects_m = Project::paginate(5);
 
-        return view('home.index', compact('projects_m','members','services','sliderList', 'MainProject', 'thiredSection', 'forthSection', 'fifthSection', 'sixthSection', 'sevenSection', 'pt3', 'pt2', 'pt1', 'st1', 'pt4', 'pt5', 'pt6', 'pt7'));
+		$cats = ProjectType::where("active" , '=', 1)->where("main" , '=', 1)->get();
+
+        return view('home.index', compact('projects_m','members','services','sliderList', 'MainProject', 'thiredSection', 'forthSection', 'fifthSection', 'sixthSection', 'sevenSection', 'pt3', 'pt2', 'pt1', 'st1', 'pt4', 'pt5', 'pt6', 'pt7', 'cats'));
     }
+	public function loadImage(Request $request){
+		$catid = $request->catid;
+		$skip = $request->skip;
+		$take = $request->take;
+
+		if($catid == 0){
+			$String = implode(',', array_column(ProjectType::where('active', '=', 1)->where('main', '=', 1)->get()->toArray(), 'id'));
+			
+			$String2 = implode(',', array_column(
+			Projecttyp::orWhere(function($query) use ($String){
+				$ar = explode("," , $String);
+				foreach($ar as $ob){
+					$query->orWhere('type_id', $ob);
+				}
+			})->get()->toArray()
+			, 'project_id'));
+
+			$list = Project::orWhere(function($query) use ($String2){
+				$ar = explode("," , $String2);
+				foreach($ar as $ob){
+					$query->orWhere('id', $ob);
+				}
+			})->where('active', 1)->skip($skip)->take($take)->get();
+			//$list = Project::where("active" , '=', 1)->skip($skip)->take($take)->get();
+		}
+		else{
+			$String = implode(',', array_column(Projecttyp::where('type_id', '=', $catid)->get()->toArray(), 'project_id'));
+			$list = Project::orWhere(function($query) use ($String){
+				$ar = explode("," , $String);
+				foreach($ar as $ob){
+					$query->orWhere('id', $ob);
+				}
+			})->where('active', 1)->skip($skip)->take($take)->get();
+		}
+		return response()->json([
+        'list'=> $list
+        ]);
+	}
     public function project($id){
         if($id){
             $obj = Project::where('id', '=', ["{$id}"])->first();

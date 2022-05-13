@@ -130,6 +130,19 @@ input#project_administrator {
                                         <span class="fv-plugins-message-container invalid-feedback" role="alert"><strong class="error_text"></strong></span>
 									</div>
 								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label style="clear: both; margin-top: 15px; margin-bottom: 15px; display: block;">
+                                        </label>
+										<div class="form-check form-check-sm form-check-custom form-check-solid me-3">
+											<input class="form-check-input" name="main" type="checkbox" data-kt-check="true" data-kt-check-target="#kt-datatable .form-check-input" value="1" />
+                                            <span style="font-weight: bold; margin-right: 10px;">
+                                            {{__("projecttype.main")}}
+                                            </span>
+										</div>
+                                        <span class="fv-plugins-message-container invalid-feedback" role="alert"><strong class="error_text"></strong></span>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="card-footer">

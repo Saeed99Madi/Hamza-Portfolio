@@ -73,6 +73,9 @@ Route::post('/contact', [SiteController::class, 'contact'])->name('home.contact'
 Route::get('/search', [SiteController::class, 'search'])->name('home.search');
 Route::get('/logo/{type?}', [SiteController::class, 'logo'])->name('home.logo');
 
+Route::post('/loadImage', [SiteController::class, 'loadImage'])->name('home.loadImage');
+
+
 Auth::routes();
 
 Route::get('/admin/home', [HomeController::class, 'index'])->name('admin.home');

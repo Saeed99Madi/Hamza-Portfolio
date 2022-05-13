@@ -10,6 +10,9 @@
 
 @section('content')
 
+<div class="PageController" id="PageController" ng-controller="PageController">
+
+    <div id="rev_slider_one_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="mask-showcase" data-source="gallery" style="background:#aaaaaa;padding:0px;">
         @if($obj)
         @if($obj->active)
 
@@ -115,6 +118,11 @@
         @else
         <span style="min-height: 400px; display: block; line-height: 400px; text-align: center; font-size: 45pt; color: #ff5a0b;">لا يوجد بيانات للعرض</span>
         @endif
+    </div>
+    <!-- SLIDER END -->
+
+</div>
+        
         <!-- End Causes Details Area -->
 @endsection
 

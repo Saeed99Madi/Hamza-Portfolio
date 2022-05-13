@@ -1,6 +1,6 @@
 
     <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
 <head>
 
@@ -534,8 +534,11 @@
 <!-- REVOLUTION SLIDER SCRIPT FILES -->
 <script  src="{{asset('assets/site/js/rev-script-2.js')}}"></script>
 
+<script src="{{ asset('Content/angular.js') }}"></script>
 
-@yield('js')
+<script src="{{ asset('Content/angular-filter.min.js') }}"></script>
+
+<script src="{{ asset('Content/jquery.form.min.js') }}"></script>
 
 <script>
     var myApp = angular.module('myApp', ['angular.filter']);//ngMaterial
@@ -568,6 +571,7 @@
 
 
 </script>
+@yield('js')
 
 
 

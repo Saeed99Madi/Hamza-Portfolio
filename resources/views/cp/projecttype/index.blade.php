@@ -91,6 +91,7 @@
 														    </th>
 														    <th style="padding-right: 10px;" width="50%">العنوان</th>
                                                             <th style="padding-right: 10px;">الحالة</th>
+															<th style="padding-right: 10px;">عرض في الصفحه الرئيسية</th>
 														    <th>تاريخ الإدخال</th>
 														    <th class="text-end min-w-100px">{{__('user.Actions')}}</th>
 													    </tr>
@@ -211,6 +212,9 @@ var KTDatatablesServerSide = function () {
                 {
                     data: "active"
                 },
+				{
+                    data: "main"
+                },
                 {
                     'data': 'created_at' ,
                     "type": "date",
@@ -244,7 +248,19 @@ var KTDatatablesServerSide = function () {
 					}
 				},
 				{
-                    targets: 4,
+                    targets: 3,
+                    data: null,
+                    orderable: !1,
+                    className: "text-end",
+                    render: function(e, t, n) {
+						if(n.main == 1)
+							return '<div class="badge badge-light-success fw-bolder">Enabled</div>'
+						else
+							return '<div class="badge badge-light-danger fw-bolder">Disable</div>'
+					}
+				},
+				{
+                    targets: 5,
                     data: null,
                     orderable: !1,
                     className: "text-end",

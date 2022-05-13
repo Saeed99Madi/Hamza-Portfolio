@@ -12,8 +12,8 @@ class ProjectType extends Model
         'users_id',
         'title',
         'subtitle',
-
-        'active'
+        'active',
+		'main'
     ];
     public function user(){
         //return $this->belongsTo(Country::class);

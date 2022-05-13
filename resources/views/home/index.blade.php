@@ -20,6 +20,7 @@
 
 @section('content')
 
+<div class="PageController" id="PageController" ng-controller="PageController">
 
 @if($pt1->active == 1)
     <!-- SLIDER START -->
@@ -111,32 +112,6 @@
 
                          style="z-index: 10; text-transform:uppercase; white-space: normal;font-weight: 800; color: #fff;font-family: 'Poppins', sans-serif;">{{$x->subtitle}}</div>
 
-{{--                    <!-- LAYER 5  Paragraph-->--}}
-{{--                    <div class="tp-caption   tp-resizeme"--}}
-{{--                         id="slide-70-layer-5"--}}
-{{--                         data-x="['left','left','left','center']" data-hoffset="['50','50','70','0']"--}}
-{{--                         data-y="['middle','middle','middle','middle']" data-voffset="['80','80','80','80']"--}}
-{{--                         data-fontsize="['16','16','16','16']"--}}
-{{--                         data-lineheight="['22','22','22','22']"--}}
-{{--                         data-width="['600','600','600','380']"--}}
-{{--                         data-height="none"--}}
-{{--                         data-whitespace="normal"--}}
-
-{{--                         data-type="text"--}}
-{{--                         data-responsive_offset="on"--}}
-
-{{--                         data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;",--}}
-{{--                                "mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":3500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},--}}
-{{--                                {"delay":"wait","speed":500,"to":"y:[-100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power1.easeIn"}]'--}}
-
-{{--                         data-textAlign="['left','left','left','center']"--}}
-{{--                         data-paddingtop="[20,20,20,20]"--}}
-{{--                         data-paddingright="[20,20,20,20]"--}}
-{{--                         data-paddingbottom="[30,30,30,30]"--}}
-{{--                         data-paddingleft="[0,0,0,0]"--}}
-
-{{--                         style="z-index: 10; white-space: normal; color: #fff;font-family: 'Poppins', sans-serif;">Analysis and planning services that help both the client and architects to work out the forthcoming project...</div>--}}
-
                     <!-- LAYER 6  Read More-->
                     <div class="tp-caption rev-btn  tp-resizeme"
                          id="slide-70-layer-6"
@@ -168,8 +143,8 @@
         </div>
     </div>
     <!-- SLIDER END -->
-@endif
 
+@endif
     <!-- End Sidebar Modal -->
     @if($pt2->active == 1)
     <div class="section-full  mobile-page-padding bg-white  p-t80 p-b80">
@@ -188,12 +163,11 @@
             <!-- Filter Nav START -->
             <div class="filter-wrap p-b30 text-center">
                 <ul class="filter-navigation masonry-filter clearfix">
-                    <li class="active"><a class="btn from-top" data-filter="*" href="#" data-hover="All">All</a></li>
-                    <li><a class=" btn from-top" data-filter=".cat-1" href="#">Architecture</a></li>
-                    <li><a class=" btn from-top" data-filter=".cat-2" href="#">Decore</a></li>
-                    <li><a class=" btn from-top" data-filter=".cat-3" href="#">Outdoor</a></li>
-                    <li><a class=" btn from-top" data-filter=".cat-4" href="#">Interiors </a></li>
-                    <li><a class=" btn from-top" data-filter=".cat-5" href="#">Residential</a></li>
+                    <li class="active">
+						<a class="btn from-top" data-filter="*" href="#" ng-click="loadcat(0)" data-hover="All">All</a></li>
+                    @foreach ($cats as $cat)
+						<li><a class=" btn from-top" value="{{$cat->id}}" ng-click="loadcat({{$cat->id}})" href="#">{{ $cat->title }}</a></li>
+					@endforeach
                 </ul>
             </div>
             <!-- Filter Nav END -->
@@ -203,33 +177,29 @@
 
 
                 <!-- COLUMNS 1 -->
-                @foreach ($projects_m as $x)
-                    @php
-                        $kinds = $x->kinds;
-@endphp
-
-                <li class="masonry-item @foreach($kinds as $kind){{$kind->title .' '}} @endforeach col-lg-4 col-md-6 col-sm-12 m-b30">
+                
+			<li class="masonry-item col-lg-4 col-md-6 col-sm-12 m-b30" ng-repeat="r in arr | filter:searchText track by $index">
                     <div class="sx-box   image-hover-block">
                         <div class="sx-thum-bx">
-                            <img src="{{ route("home.index.project.getimg") }}/{{$x->id}}/1" alt="{{$x->title}}">
+                            <img src="{{ route("home.index.project.getimg") }}/<%r.id%>/1" alt="<%r.title%>">
                         </div>
                         <div class="sx-info  p-t20 text-white">
-                            <h4 class="sx-tilte"><a href="{{route('home.project' , $x->id)}}">{{$x->title}}</a></h4>
-                            <p class="m-b0">{{$x->subtitle}}</p>
+                            <h4 class="sx-tilte"><a href="{{route('home.project')}}/<%r.id%>"><%r.title%></a></h4>
+                            <p class="m-b0"><%r.subtitle%></p>
                         </div>
-                        <a class="mfp-link" href="{{ route("home.index.project.getimg") }}/{{$x->id}}/1">
+                        <a class="mfp-link" href="{{ route("home.index.project.getimg") }}/<%r.id%>/1">
                             <i class="fa fa-arrows-alt"></i>
                         </a>
                     </div>
                 </li>
-            @endforeach
+
                 <!-- COLUMNS 2 -->
 
             </ul>
             <!-- GALLERY CONTENT END -->
 
             <div class="text-center load-more-btn-outer" style="background-image:url({{asset('assets/site/images/background/cross-line.png')}})">
-                <button class="site-button-secondry btn-half"><span>Load More</span></button>
+                <button class="site-button-secondry btn-half" id="btnLoadMore" ng-click="loadmore()"><span>Load More</span></button>
             </div>
         </div>
     </div>
@@ -281,65 +251,9 @@
                 <strong>Experts</strong>
             </div>
         </div>
-        <!-- OUR TEAM END -->
 
     @endif
-    <!--<section class="fun-facts-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-fun-fact">
-                            <p>Beneficiaries</p>
-                            <h3>
-                                <span class="sign-icon dolor">$</span>
-                                <span class="odometer" data-count="500">00</span>
-                                <span class="sign-icon">M</span>
-                            </h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-fun-fact">
-                            <p>Happy Donators</p>
-                            <h3>
-                                <span class="odometer" data-count="458">00</span>
-                                <span class="sign-icon">+</span>
-                            </h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-fun-fact">
-                            <p>Volunteer</p>
-                            <h3>
-                                <span class="odometer" data-count="45">00</span>
-                                <span class="sign-icon">+</span>
-                            </h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-fun-fact">
-                            <p>Donated Poor</p>
-                            <h3>
-                                <span class="odometer" data-count="20">00</span>
-                                <span class="sign-icon">K</span>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        -->
-    <!-- End Fun Facts Area -->
-
-    <!-- Start Causes Area -->
-
-    <!-- End Causes Area -->
-
-    <!-- Start Donor Area -->
-
-
+    
 @if($st1->active == 1)
     <a class="staticLink" data-id="{{$st1->id}}">
 
@@ -390,51 +304,72 @@
 
         </div>
         <!-- OUR SERVICES END -->
-
-
-
-
-
-
     @endif
-    <!-- End Donor Area -->
-
-    @if($pt4->active == 1)
-
-    @endif
-
-
-
-    @if($pt5->active == 1)
-
-    @endif
-
-    @if($pt6->active == 1)
-        <!-- Start Team Area -->
-    @endif
-
-
-
-
-
-
-
-
-    <!-- End Team Area -->
-
-    <!-- Start Events Area -->
-
-    <!-- End Events Area -->
-
-    <!-- Start Testimonials Area -->
-    <!-- End Testimonials Area -->
-
-
-
-    <!-- Start Blog Area -->
-
-    <!-- End Blog Area -->
+    
+</div>
 @endsection
 
 @section('js')
+<script>
+	$("#btnLoadMore1").click(function(){
+		angular.element('#PageController').scope().loadmore();
+		angular.element('#PageController').scope().Apply();
+	});
+	myApp.controller('PageController', function ($scope, $http, $rootScope) {
+		$scope.init = function () {
+		}
+		$scope.date = Date.now();
+		$scope.arr = [];
+		$scope.catid = 0;
+		$scope.skip = 0;
+		$scope.take = 2;
+		$scope.Apply = function () {
+			$scope.date = Date.now();
+			$scope.$apply();
+		}
+        $scope.loadimage = function () {
+                $http({
+                    method: 'POST',
+                    params: {
+                        catid: $scope.catid,
+						skip: $scope.skip,
+						take: $scope.take 
+                    },
+                    url: 'loadImage'
+                }).then(function successCallback(response) {
+                    console.log(response.data.list);
+					if($scope.arr.length == 0){
+						$scope.arr = response.data.list;
+					}
+					else {
+						$scope.arr.push.apply($scope.arr, response.data.list);
+					}
+					if(response.data.list.length > 0){
+					console.log($scope.skip);
+					console.log(response.data.list.length);
+					 $scope.skip = $scope.skip + response.data.list.length;
+					}
+                }, function errorCallback(response) {
+                });
+         }
+		$scope.loadimage();
+		$scope.loadmore = function () {
+			$scope.loadimage();
+        }
+		$scope.loadcat = function (cat) {
+                $scope.arr = [];
+				
+				if($scope.catid != cat) {
+					$scope.skip = 0;
+				}
+				$scope.catid = cat;
+				$scope.loadimage();
+
+				settimout(function(){
+				 var height = document.getElementById('divul').offsetHeight;
+
+				}, 200);
+         }
+	});
+</script>
 @endsection
