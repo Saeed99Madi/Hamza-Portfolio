@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Kind;
 use App\Models\ProjectKind;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Project;
@@ -16,6 +17,7 @@ use App\Models\Projecttyp;
 use Validator;
 use Dompdf\Dompdf;
 use DB;
+use Illuminate\Support\Facades\File;
 
 class ProjectController extends BaseController
 {
@@ -33,6 +35,7 @@ class ProjectController extends BaseController
             'title' => 'required|max:200',
 			'desccode' => 'required|max:50000',
             'cost' => 'required|numeric',
+            'address' => 'required',
             'catid' => 'required',
             'file' => 'required|max:2000|mimes:jpeg,png,jpg,gif,svg',
             'images' => 'max:20000|mimes:jpeg,png,jpg,gif,svg',
@@ -51,14 +54,22 @@ class ProjectController extends BaseController
                 $destinationPath = public_path().'/upload' ;
                 $file->move($destinationPath,$img_cat);
             }
-            $imagesname = '';
-            if($images = $request->hasFile('images')) {
 
+            $imagesname = '';
+            if($request->images){
                 foreach ($request->images as $key => $image_g){
+
                     $imageName = time().'.'.$image_g->getClientOriginalExtension();
-                    $destinationPath = public_path().'/upload' ;
-                    $image_g->move()($destinationPath,$imageName);
-                    $imagesname = $imagesname .',' .$imageName;
+                    $destinationPath = public_path().'/upload';
+
+                    $image_g->move($destinationPath,$imageName);
+
+                    if($imagesname){
+                        $imagesname = $imagesname .','.$imageName;
+                    }
+                    else{
+                        $imagesname = $imageName;
+                    }
                 }
             }
 //            if($files =  $request->file('files')) {
@@ -102,6 +113,7 @@ class ProjectController extends BaseController
             'subtitle' => $request['subtitle'],
             'youtube' => $request['youtube'],
 			'desccode' => $request['desccode'],
+			'address' => $request['address'],
             'file' => $img_cat,
             'icon' => $img_icon,
             'cover' => $img_cover,
@@ -116,13 +128,13 @@ class ProjectController extends BaseController
                     'type_id' => $x
                 ]);
             }
-            foreach($kindid as $x){
+            /*foreach($kindid as $x){
                 ProjectKind::create([
                     'project_id' => $data->id,
                     'kind_id' => $x
                 ]);
             }
-
+*/
 			return response()->json([
 			'status'=> 1,
 			'msg' => 's: ' . __('msg.done'),
@@ -165,9 +177,13 @@ class ProjectController extends BaseController
     }
     public function editpost(Request $request)
     {
+        $id = $request->id;
+        $project = Project::findOrFail($id);
+
         if($request->hasFile('file')){
 		    $validator = Validator::make($request->all(), [
                 'title' => 'required|max:200',
+                'address' => 'required',
 			    'desccode' => 'required|max:5000',
                 'cost' => 'required|numeric',
                 //'catid' => 'required',
@@ -187,64 +203,57 @@ class ProjectController extends BaseController
         {
             $img_cat = '';
             if($file = $request->hasFile('file')) {
+                $destinationPath = public_path().'/upload' ;
+                File::delete($destinationPath.'/'.$project->file);
                 $file = $request->file('file');
                 $img_cat = time().'.'.$request->file->getClientOriginalExtension();//$file->getClientOriginalName() ;
-                $destinationPath = public_path().'/upload' ;
+
                 $file->move($destinationPath,$img_cat);
             }
-
-
-
             $img_icon = '';
             if($file = $request->hasFile('icon')) {
+                $destinationPath = public_path().'/upload' ;
+                File::delete($destinationPath.'/'.$project->icon);
                 $file = $request->file('icon');
                 $img_icon = 'ic' . time().'.'.$request->icon->getClientOriginalExtension();//$file->getClientOriginalName() ;
-                $destinationPath = public_path().'/upload' ;
+
                 $file->move($destinationPath,$img_icon);
             }
 
             $img_cover = '';
             if($file = $request->hasFile('cover')) {
+                $destinationPath = public_path().'/upload' ;
+                File::delete($destinationPath.'/'.$project->cover);
                 $file = $request->file('cover');
                 $img_cover = 'ic' . time().'.'.$request->cover->getClientOriginalExtension();//$file->getClientOriginalName() ;
-                $destinationPath = public_path().'/upload' ;
+
                 $file->move($destinationPath,$img_cover);
             }
-
             $user = auth()->user();
             $userid = $user->id;
-            $id = $request->id;
-
             $req = $request->all();
             $req["users_id"] = $user->id;
             $catid = $request['catid'];
             $kindid = $request['kindid'];
             $count = Project::where('id',$id)->count();
-            
-			/*
-			if($request->images){
-                $project = Project::findOrFail($id);
-                $images =explode(',',$project->images) ;
-                foreach ($images as $image){
-                    unlink(public_path().'/upload'.$image);
+//            dd($request->images[0] == null);
+			if(!$request->images[0] == null){
+
+                if($project->images) {
+                    $images = explode(',', $project->images);
+                    $destinationPath = public_path().'/upload' ;
+                    foreach ($images as $image) {
+                        File::delete($destinationPath.'/'.$image);
+                    }
                 }
                 $imagesname = '';
-                foreach ($request->images as $key => $image_g){
-                    $imageName = time().'.'.$image_g->getClientOriginalExtension();
+                foreach ($request->images as $key =>$image_g){
+                    $imageName = Carbon::now()->timestamp. $key.'.'.$image_g->getClientOriginalExtension();
                     $destinationPath = public_path().'/upload';
-                    $image_g->move()($destinationPath,$imageName);
-                    $imagesname = $imagesname .','.$imageName;
+                    $image_g->move($destinationPath,$imageName);
+                    if($imagesname){$imagesname = $imagesname .','.$imageName;} else{$imagesname = $imageName;}
                 }
-            }*/
-
-			$imagesname = '';
-            if($file = $request->hasFile('image_g')) {
-                $file = $request->file('image_g');
-                $imagesname = 'ic' . time().'.'.$request->image_g->getClientOriginalExtension();//$file->getClientOriginalName() ;
-                $destinationPath = public_path().'/upload' ;
-                $file->move($destinationPath,$imagesname);
-            }
-
+            }else{$imagesname ='';}
             if($count > 0){
                 Project::where('id',$id)->update([
                 'title' => $request['title'],
@@ -252,6 +261,7 @@ class ProjectController extends BaseController
                 'cost' => $request['cost'],
                 'subtitle' => $request['subtitle'],
                 'youtube' => $request['youtube'],
+                'address' => $request['address'],
                 'active' => $active
                 ]);
 
@@ -266,7 +276,7 @@ class ProjectController extends BaseController
                     ]);
                 }
 				
-				if($imagesname){
+				if(!$imagesname == ''){
                     Project::where('id',$id)->update([
                     'images' => $imagesname,
                     ]);

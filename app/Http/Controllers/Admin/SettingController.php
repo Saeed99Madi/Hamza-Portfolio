@@ -61,6 +61,10 @@ class SettingController extends BaseController
                     'footer3' => $request['footer3'],
                     'footer4' => $request['footer4'],
                     'title' => $request['title'],
+                    'phone' => $request['phone'],
+                    'email' => $request['email'],
+                    'address' => $request['address'],
+                    'behance' => $request['behance'],
 			    ]);
             }
             else{
@@ -74,6 +78,10 @@ class SettingController extends BaseController
                     'footer3' => $request['footer3'],
                     'footer4' => $request['footer4'],
                     'title' => $request['title'],
+                    'phone' => $request['phone'],
+                    'email' => $request['email'],
+                    'address' => $request['address'],
+                    'behance' => $request['behance'],
 			    ]);
             }
 

@@ -20,6 +20,7 @@ class Project extends Model
         'icon',
         'images',
         'cover',
+        'address',
     ];
 
     public function kinds(){

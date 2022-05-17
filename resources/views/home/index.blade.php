@@ -145,6 +145,7 @@
     <!-- SLIDER END -->
 
 @endif
+
     <!-- End Sidebar Modal -->
     @if($pt2->active == 1)
     <div class="section-full  mobile-page-padding bg-white  p-t80 p-b80">
@@ -166,31 +167,32 @@
                     <li class="active">
 						<a class="btn from-top" data-filter="*" href="#" ng-click="loadcat(0)" data-hover="All">All</a></li>
                     @foreach ($cats as $cat)
-						<li><a class=" btn from-top" value="{{$cat->id}}" ng-click="loadcat({{$cat->id}})" href="#">{{ $cat->title }}</a></li>
+						<li><a class=" btn from-top"  ng-click="loadcat({{$cat->id}})" href="#">{{ $cat->title }}</a></li>
 					@endforeach
                 </ul>
             </div>
             <!-- Filter Nav END -->
 
             <!-- GALLERY CONTENT START -->
-            <ul  class="masonry-outer mfp-gallery work-grid row clearfix list-unstyled m-b0">
+            <ul  class="masonry-outer1 mfp-gallery work-grid row clearfix list-unstyled m-b0 dulproject">
 
 
                 <!-- COLUMNS 1 -->
                 
-			<li class="masonry-item col-lg-4 col-md-6 col-sm-12 m-b30" ng-repeat="r in arr | filter:searchText track by $index">
-                    <div class="sx-box   image-hover-block">
-                        <div class="sx-thum-bx">
-                            <img src="{{ route("home.index.project.getimg") }}/<%r.id%>/1" alt="<%r.title%>">
+                <li class="masonry-item col-lg-4 col-md-6 col-sm-12 m-b30" ng-repeat="r in arr | filter:searchText track by $index">
+                        <div class="sx-box   image-hover-block">
+                            <div class="sx-thum-bx">
+
+                                <img src="./thumb.php?src=./upload/<%r.file%>&size=400x300&trim=1&zoom=1" alt="<%r.title%>">
+                            </div>
+                            <div class="sx-info  p-t20 text-white">
+                                <h4 class="sx-tilte"><a href="{{route('home.project')}}/<%r.id%>"><%r.title%></a></h4>
+                                <p class="m-b0"><%r.subtitle%></p>
+                            </div>
+                            <a class="mfp-link" href="{{ route("home.index.project.getimg") }}/<%r.id%>/1">
+                                <i class="fa fa-arrows-alt"></i>
+                            </a>
                         </div>
-                        <div class="sx-info  p-t20 text-white">
-                            <h4 class="sx-tilte"><a href="{{route('home.project')}}/<%r.id%>"><%r.title%></a></h4>
-                            <p class="m-b0"><%r.subtitle%></p>
-                        </div>
-                        <a class="mfp-link" href="{{ route("home.index.project.getimg") }}/<%r.id%>/1">
-                            <i class="fa fa-arrows-alt"></i>
-                        </a>
-                    </div>
                 </li>
 
                 <!-- COLUMNS 2 -->
@@ -256,7 +258,6 @@
     
 @if($st1->active == 1)
     <a class="staticLink" data-id="{{$st1->id}}">
-
         {!!
             $st1->desccode
         !!}
@@ -322,14 +323,15 @@
 		$scope.arr = [];
 		$scope.catid = 0;
 		$scope.skip = 0;
-		$scope.take = 2;
+		$scope.take = 3;
 		$scope.Apply = function () {
 			$scope.date = Date.now();
 			$scope.$apply();
 		}
         $scope.loadimage = function () {
-                $http({
-                    method: 'POST',
+            gifFun(1);
+            $http({
+                    method: 'GET',
                     params: {
                         catid: $scope.catid,
 						skip: $scope.skip,
@@ -342,19 +344,28 @@
 						$scope.arr = response.data.list;
 					}
 					else {
-						$scope.arr.push.apply($scope.arr, response.data.list);
+                        console.log($scope.arr);
+                        console.log(response.data.list);
+
+                        $scope.arr.push.apply($scope.arr, response.data.list);
 					}
 					if(response.data.list.length > 0){
 					console.log($scope.skip);
 					console.log(response.data.list.length);
 					 $scope.skip = $scope.skip + response.data.list.length;
 					}
-                }, function errorCallback(response) {
-                });
+                gifFun(0);
+            }, function errorCallback(response) {
+                gifFun(0);
+            });
          }
 		$scope.loadimage();
 		$scope.loadmore = function () {
 			$scope.loadimage();
+           // setTimeout(function(){
+                //var height = document.getElementById('divul').offsetHeight;
+             //   $(".ulproject").css({ 'height' : '' });
+            //}, 500);
         }
 		$scope.loadcat = function (cat) {
                 $scope.arr = [];
@@ -365,10 +376,10 @@
 				$scope.catid = cat;
 				$scope.loadimage();
 
-				settimout(function(){
-				 var height = document.getElementById('divul').offsetHeight;
-
-				}, 200);
+                //setTimeout(function(){
+				 // var height = document.getElementById('divul').offsetHeight;
+               // $(".ulproject").css({ 'height' : '' });
+				//}, 500);
          }
 	});
 </script>

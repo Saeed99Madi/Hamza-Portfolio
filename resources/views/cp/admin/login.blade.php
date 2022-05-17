@@ -3,7 +3,7 @@
 <html lang="ar">
 	<head>
 		<meta charset="utf-8" />
-		<title>Login Page 2 | Keenthemes</title>
+		<title>Login Page</title>
 		<meta name="description" content="Login page example" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -126,8 +126,6 @@
 						<div class="d-flex flex-column justify-content-center">
 							<h3 class="display-3 font-weight-bold my-7 text-white">{{__('login.welcome')}}</h3>
 							<p class="font-weight-bold font-size-lg text-white opacity-80">
-                            The ultimate Bootstrap, Angular 8, React &amp; VueJS admin theme 
-							<br />framework for next generation web apps.</p>
 						</div>
 					</div>
 				</div>

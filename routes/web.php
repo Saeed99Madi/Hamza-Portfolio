@@ -69,11 +69,13 @@ Route::get('/getimg/{id?}/{type?}', [SiteController::class, 'getimg'])->name('ho
 Route::get('/project/{id?}', [SiteController::class, 'project'])->name('home.project');
 Route::get('/type/{id?}', [SiteController::class, 'type'])->name('home.type');
 Route::get('/page/{id?}', [SiteController::class, 'page'])->name('home.page');
+Route::get('/contactpage', [SiteController::class, 'getContact'])->name('home.contactGet');
+
 Route::post('/contact', [SiteController::class, 'contact'])->name('home.contact');
 Route::get('/search', [SiteController::class, 'search'])->name('home.search');
 Route::get('/logo/{type?}', [SiteController::class, 'logo'])->name('home.logo');
 
-Route::post('/loadImage', [SiteController::class, 'loadImage'])->name('home.loadImage');
+Route::get('/loadImage', [SiteController::class, 'loadImage'])->name('home.loadImage');
 
 
 Auth::routes();

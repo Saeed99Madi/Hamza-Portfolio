@@ -24,6 +24,10 @@ class SiteController extends Controller
     {
         $this->middleware('site.menu');
     }
+    public function getContact(){
+        $settings = Setting::first();
+        return view('home.contact',compact('settings'));
+    }
 	public function index()
     {
         $slider = Projecttyp::where('type_id', '=', 1);
@@ -145,12 +149,21 @@ class SiteController extends Controller
     public function project($id){
         if($id){
             $obj = Project::where('id', '=', ["{$id}"])->first();
+            $cats = $obj->kinds;
             $pagetitle = $obj->title;
-            return view('home.project', compact('obj', 'pagetitle'));
+            $catsIDS = $obj->kinds->pluck('id')->toArray();
+
+            $similarProjects  = Project::whereHas('kinds', function ($query) use ($catsIDS) {
+                $query->where('kind_id', $catsIDS);
+            })->limit(5)->get();
+//            dd($similarProjects);
+            return view('home.project', compact('obj', 'pagetitle','cats','similarProjects'));
         }
         return null;
     }
     public function page($id){
+
+
         if($id){
             $obj = StaticPage::where('id', '=', ["{$id}"])->first();
             $con = StaticPage::where('id', '=', 6)->first();
@@ -175,22 +188,21 @@ class SiteController extends Controller
             'active' => 1
             ]);
             Session::flash('msg','s: ' . 'تم إرسال الرسالة بنجاح سنتواصل معك في أقرب وقت ممكن');
-            return redirect(route('home.page', 3));
+            return redirect(route('home.contactGet'));
         }
         else{
             Session::flash('msg','e: ' . 'أدخل البيانات المطلوبة');
             //dd($validator->errors()->messages());
-            return redirect(route('home.page', 3))->withInput($request->input())->withErrors($validator);
+            return redirect(route('home.contactGet'))->withInput($request->input())->withErrors($validator);
         }
     }
     public function type($id){
         if($id){
             $obj = ProjectType::where('id', '=', ["{$id}"])->first();
-
             $q = request()->q;
             $items = Project::whereRaw('(fullname like ? or email like ?)',["%{$q}%", "%{$q}%"]);
-
             $idString = implode(',', array_column(Projecttyp::where('type_id', '=', $id)->get()->toArray(), 'project_id'));
+
             $items = Project::orWhere(function($query) use ($idString){
                 $ar = explode("," , $idString);
                 foreach($ar as $ob){
@@ -204,9 +216,10 @@ class SiteController extends Controller
                             ]);
             $paginator = $items->links()->paginator;
             $elements = $items->links()->elements;
+            $cats = ProjectType::where("active" , '=', 1)->where("main" , '=', 1)->get();
                             //dd($items->links()->elements);
             //Session::flash("msg", "{$items->total()} Result(s) was found to your search");
-            return view("home.type",compact('obj', 'items', 'paginator', 'elements'));
+            return view("home.type",compact('obj', 'items', 'paginator', 'elements','cats'));
         }
         return null;
     }

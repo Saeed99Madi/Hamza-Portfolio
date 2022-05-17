@@ -75,6 +75,42 @@
 										<span class="form-text text-muted"></span>
 									</div>
 								</div>
+
+
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>{{__("setting.phone")}}</label>
+									<input type="text" id="phone" name="phone" value="{{$obj?$obj->phone:''}}" class="form-control form-control-solid" placeholder="Phone" autocomplete="off">
+									<span class="form-text text-muted"></span>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>{{__("setting.email")}}</label>
+									<input type="text" id="email" name="email" value="{{$obj?$obj->email:''}}" class="form-control form-control-solid" placeholder="Email" autocomplete="off">
+									<span class="form-text text-muted"></span>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>{{__("setting.address")}}</label>
+									<input type="text" id="address" name="address" value="{{$obj?$obj->address:''}}" class="form-control form-control-solid" placeholder="Address" autocomplete="off">
+									<span class="form-text text-muted"></span>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>{{__("setting.behance")}}</label>
+									<input type="text" id="behance" name="behance" value="{{$obj?$obj->behance:''}}" class="form-control form-control-solid" placeholder="Behance" autocomplete="off">
+									<span class="form-text text-muted"></span>
+								</div>
+							</div>
+
+
+
+
+
 								<div class="col-md-4">
 									<div class="form-group">
 										<label>{{__("setting.instagram")}}</label>

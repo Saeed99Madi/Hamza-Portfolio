@@ -18,6 +18,10 @@ class Setting extends Model
         'title',
         'users_id',
         'logo',
-        'favicon'
+        'favicon',
+        'phone',
+        'email',
+        'address',
+        'behance',
     ];
 }

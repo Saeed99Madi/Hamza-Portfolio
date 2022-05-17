@@ -74,18 +74,20 @@
             <div class="container">
                 <div class="d-flex justify-content-between ">
                     <ul class="list-unstyled e-p-bx text-white">
-                        <li><span>Mail us:</span> 7xthemehelp@gmail.com</li>
-                        <li><span>Call us:</span>(075) 123-7654</li>
+                        <li><span>Mail us:</span> {{$setting->email}}</li>
+                        <li><span>Call us:</span>{{$setting->phone}}</li>
                     </ul>
                     <ul class="list-unstyled social-bx text-white d-flex flex-wrap align-content-center">
                         @if($setting->facebook)
-
                             <li><a href="{{$setting->facebook}}"><i class="fa fa-facebook"></i></a></li>
                         @endif
 
                         @if($setting->twitter)
                             <li><a href="{{$setting->twitter}}"><i class="fa fa-twitter"></i></a></li>
                         @endif
+                            @if($setting->behance)
+                                <li><a href="{{$setting->behance}};" class="fa fa-behance"></a></li>
+                            @endif
 
                         @if($setting->instagram)
                             <li><a href="{{$setting->instagram}}"><i class="fa fa-instagram"></i></a></li>
@@ -96,7 +98,7 @@
                                 <i class='flaticon-linkedin'></i>
                             </a>
                         @endif
-                        <li><a href="javascript:;"><i class="fa fa-google"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -107,7 +109,7 @@
                 <div class="container clearfix">
                     <div class="logo-header">
                         <div class="logo-header-inner logo-header-one">
-                            <a href="index.html">
+                            <a href="/">
                                 <img src="{{ route('home.logo') }}/1" class="white-logo" alt="logo">
                             </a>
                         </div>
@@ -226,6 +228,11 @@
                                 @if($setting->twitter)
                                         <li><a href="{{$setting->twitter}};" class="fa fa-twitter"></a></li>
                                 @endif
+
+                                    @if($setting->behance)
+                                        <li><a href="{{$setting->behance}};" class="fa fa-behance"></a></li>
+                                    @endif
+
 
                                 @if($setting->instagram)
                                         <li><a href="{{$setting->instagram}}" class="fa fa-instagram"></a></li>
@@ -347,6 +354,8 @@
             </div>
         </div>
     </footer>
+
+
     <!-- FOOTER END -->
 
 
@@ -475,7 +484,8 @@
 </div>
 
 <!-- LOADING AREA START ===== -->
-<div class="loading-area">
+<div class="LoadController">
+<div class="loading-area" style="display:none;     opacity: 0.8;">
     <div class="loading-box"></div>
     <div class="loading-pic">
         <div class="cssload-spinner">
@@ -499,7 +509,7 @@
     </div>
 </div>
 <!-- LOADING AREA  END ====== -->
-
+</div>
 <!-- JAVASCRIPT  FILES ========================================= -->
 <script  src="{{asset('assets/site/js/jquery-1.12.4.min.js')}}"></script><!-- JQUERY.MIN JS -->
 <script  src="{{asset('assets/site/js/popper.min.js')}}"></script><!-- POPPER.MIN JS -->
@@ -546,6 +556,14 @@
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
     });
+    gifFun = function (i){
+        if(i > 0){
+            $(".loading-area").css({ 'display' : '' });
+        }
+        else{
+            $(".loading-area").css({ 'display' : 'none' });
+        }
+    }
 
     jQuery('.projectLink').bind('click', function(e) {
         var id = $(this).attr("data-id");
@@ -568,6 +586,9 @@
             window.open('{{route('admin.projecttype.edit')}}'+'/' + id +'','_blank')
         }
     });
+</script>
+<script>
+
 
 
 </script>

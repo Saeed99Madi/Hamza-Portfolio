@@ -96,6 +96,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label>{{__("project.address")}}</label>
+                                        <input type="text" id="address" name="address" value="{{$obj?$obj->title:''}}" class="form-control form-control-solid" placeholder="{{__("project.enter").' '.__("project.address")}}" autocomplete="off">
+                                        <span class="fv-plugins-message-container invalid-feedback" role="alert"><strong class="error_text"></strong></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label>{{__("project.subtitle")}}</label>
                                         <input type="text" id="subtitle" name="subtitle" value="{{$obj?$obj->subtitle?$obj->subtitle:'':''}}" class="form-control form-control-solid" placeholder="{{__("project.enter").' '.__("project.subtitle")}}" autocomplete="off">
                                         <span class="fv-plugins-message-container invalid-feedback" role="alert"><strong class="error_text"></strong></span>
@@ -175,7 +182,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group" style="width: 100px; height: 100px;">
-                                        <label style="clear: both; display: block; margin-bottom: 20px;">{{__("art.mainfile")}}</label>
+                                        <label style="clear: both; display: block; margin-bottom: 20px;">{{__("project.icon")}}</label>
                                         <img style="width: 100px; " src="{{ route("admin.project.getimg") }}/{{$obj->id}}/2&&date=<%date%>">
                                     </div>
                                 </div>
@@ -188,19 +195,20 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label style="clear: both; display: block; margin-bottom: 20px;">{{__("art.mainfile")}}</label>
+                                        <label style="clear: both; display: block; margin-bottom: 20px;">{{__("project.cover")}}</label>
                                         <img style="width: 100%;" src="{{ route("admin.project.getimg") }}/{{$obj->id}}/3&&date=<%date%>">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label style="clear: both; display: block;">Project Gallery</label>
-                                        <input type="file" id="images" name="images" multiple>
+                                        <input type="file" id="images" name="images[]" multiple>
                                         <span class="fv-plugins-message-container invalid-feedback" role="alert"><strong class="error_text"></strong></span>
                                     </div>
                                 </div>
                                 @php
                                     $images_g = explode(',' , $obj->images);
+
                                 @endphp
 
                                 @foreach($images_g as $image_g)

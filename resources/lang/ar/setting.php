@@ -9,9 +9,12 @@ return [
     'footer2' => 'footer2',
     'footer3' => 'footer3',
     'footer4' => 'footer4',
-
+    'phone' => 'phone',
+    'email' => 'email',
+    'address' => 'address',
     'logo' => 'logo',
     'favicon' => 'favicon',
     'footer' => 'footer logo',
+    'behance' => 'behance',
 ]
 ?>

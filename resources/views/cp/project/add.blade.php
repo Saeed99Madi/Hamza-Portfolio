@@ -92,6 +92,13 @@ input#project_administrator {
 										<span class="fv-plugins-message-container invalid-feedback" role="alert"><strong class="error_text"></strong></span>
 									</div>
 								</div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>{{__("project.address")}}</label>
+                                    <input type="text" id="address" name="address" value="" class="form-control form-control-solid" placeholder="{{__("project.enter").' '.__("project.address")}}" autocomplete="off">
+                                    <span class="fv-plugins-message-container invalid-feedback" role="alert"><strong class="error_text"></strong></span>
+                                </div>
+                            </div>
                                 <div class="col-md-6">
 									<div class="form-group">
 										<label>{{__("project.subtitle")}}</label>
@@ -177,7 +184,7 @@ input#project_administrator {
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label style="clear: both; display: block;">Project Gallery</label>
-                                    <input type="file" id="images" name="images" multiple>
+                                    <input type="file" id="images" name="images[]" multiple>
                                     <span class="fv-plugins-message-container invalid-feedback" role="alert"><strong class="error_text"></strong></span>
                                 </div>
                             </div>
